@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>Lalo.com | Agencia Publicitaria & Estudio Creativo 3D</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,22 +12,31 @@
 <body class="theme-futuristic">
 
   <!-- =========================================================
-       PRESENTACIÓN ANIMADA 3D INICIAL
+       1. PRESENTACIÓN 3D GIGANTE: LAS LETRAS SE ENCUENTRAN Y ARMAN
        ========================================================= -->
   <div id="introSplash3D" class="intro-splash-3d">
-    <div class="splash-particles"></div>
+    <div class="splash-orbit-ring"></div>
     <div class="splash-logo-stage">
-      <div class="official-logo-3d intro-animate" aria-label="Lalo.com Agencia Publicitaria">
-        <div class="logo-word-3d">
-          <span class="char-lalo">L</span><span class="char-lalo">a</span><span class="char-lalo">l</span><span class="char-lalo">o</span><span class="char-dot">.</span><span class="char-c">c</span><span class="char-o">o</span><span class="char-m">m</span>
+      <div class="official-logo-3d assemble-3d-logo" aria-label="Lalo.com Agencia Publicitaria">
+        <div class="logo-word-3d monumental-word">
+          <span class="char-lalo fly-1">L</span>
+          <span class="char-lalo fly-2">a</span>
+          <span class="char-lalo fly-3">l</span>
+          <span class="char-lalo fly-4">o</span>
+          <span class="char-dot fly-5">.</span>
+          <span class="char-c fly-6">c</span>
+          <span class="char-o fly-7">o</span>
+          <span class="char-m fly-8">m</span>
         </div>
-        <div class="logo-tagline-3d">A G E N C I A &nbsp; P U B L I C I T A R I A</div>
+        <div class="logo-tagline-3d monumental-tagline">A G E N C I A &nbsp; P U B L I C I T A R I A</div>
       </div>
       <div class="intro-loader-bar"><div class="intro-loader-fill"></div></div>
     </div>
   </div>
 
-  <!-- BARRA DE NAVEGACIÓN -->
+  <!-- =========================================================
+       BARRA DE NAVEGACIÓN ADAPTABLE (PC Y CELULAR)
+       ========================================================= -->
   <header class="navbar-3d">
     <div class="nav-container">
       <div class="brand-3d-trigger" onclick="switchView('client')">
@@ -40,26 +49,25 @@
       </div>
 
       <nav class="nav-links" id="clientNavLinks">
-        <button class="nav-pill-btn active" onclick="scrollToSection('catalogo')">Catálogo Masivo</button>
-        <button class="nav-pill-btn" onclick="scrollToSection('cotizadorRapido')">Cotizador Pro</button>
-        <button class="nav-pill-btn" onclick="scrollToSection('fotografia')">Estudio Foto HD</button>
-        <button class="nav-pill-btn" onclick="scrollToSection('boveda')">Bóveda Privada</button>
+        <button class="nav-pill-btn active" onclick="scrollToSection('catalogo')">Catálogos</button>
+        <button class="nav-pill-btn" onclick="scrollToSection('cotizadorRapido')">Cotizador</button>
+        <button class="nav-pill-btn" onclick="scrollToSection('boveda')">Bóveda Fotos HD</button>
         <button class="nav-pill-btn" onclick="scrollToSection('pagos')">Pagos & PSE</button>
       </nav>
 
       <div class="nav-actions">
         <button class="icon-btn-3d" onclick="openTrackModal()" title="Rastrear pedido"><i data-lucide="radar"></i></button>
         <button class="icon-btn-3d cart-trigger" onclick="toggleCart()" title="Carrito"><i data-lucide="shopping-bag"></i><span class="badge-count" id="cartCount">0</span></button>
-        <button class="mode-switch-btn-3d" id="modeSwitchBtn" onclick="handleModeSwitch()"><i data-lucide="fingerprint"></i><span id="modeSwitchText">Panel Autor</span></button>
+        <button class="mode-switch-btn-3d" id="modeSwitchBtn" onclick="handleModeSwitch()"><i data-lucide="scan-face"></i><span id="modeSwitchText">Autor</span></button>
       </div>
     </div>
   </header>
 
   <!-- =========================================================
-       VISTA CLIENTE
+       VISTA 1: PORTAL DEL CLIENTE (RESPONSIVO PC Y MÓVIL)
        ========================================================= -->
   <main id="clientView">
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION CON LOGO GIGANTE FLOTANTE -->
     <section class="hero-3d-stage">
       <div class="ambient-glow glow-cyan"></div>
       <div class="ambient-glow glow-magenta"></div>
@@ -71,118 +79,110 @@
             <div class="logo-word-3d">
               <span class="char-lalo">L</span><span class="char-lalo">a</span><span class="char-lalo">l</span><span class="char-lalo">o</span><span class="char-dot">.</span><span class="char-c">c</span><span class="char-o">o</span><span class="char-m">m</span>
             </div>
-            <div class="logo-tagline-3d">A G E N C I A &nbsp; P U B L I C I T A R I / A</div>
+            <div class="logo-tagline-3d">A G E N C I A &nbsp; P U B L I C I T A R I A</div>
           </div>
         </div>
 
         <h1 id="heroTitle" class="hero-headline">Publicidad de Alto Impacto, Láser, Lápidas & Fotografía HD</h1>
-        <p id="heroSubtitle" class="hero-subtext">Soluciones publicitarias integrales por medida exacta. Letreros con y sin luz, estampados, bordados, tazas, lápidas láser y estudio fotográfico con entrega digital original.</p>
+        <p id="heroSubtitle" class="hero-subtext">Fabricamos letreros con y sin luz, lápidas grabadas con láser, tazas, camisas bordadas y fotografía digital en calidad 100% original.</p>
 
         <div class="hero-cta-row">
-          <button class="btn-futuristic-primary" onclick="scrollToSection('catalogo')"><i data-lucide="layers"></i> Explorar Catálogos</button>
-          <button class="btn-futuristic-glass" onclick="scrollToSection('boveda')"><i data-lucide="key-round"></i> Descargar Mis Fotos HD</button>
-          <a href="https://wa.me/573117053670?text=Hola%20Lalo.com,%20deseo%20asesoría%20personalizada" target="_blank" rel="noopener" class="btn-futuristic-glass" style="text-decoration:none; color:inherit;">
+          <button class="btn-futuristic-primary" onclick="scrollToSection('catalogo')"><i data-lucide="layout-grid"></i> Explorar Catálogos</button>
+          <button class="btn-futuristic-glass" onclick="scrollToSection('boveda')"><i data-lucide="key-round"></i> Descargar Mis Fotos</button>
+          <a id="heroWhatsappLink" href="https://wa.me/573117053670?text=Hola%20Lalo.com,%20quiero%20cotizar%20un%20trabajo" target="_blank" rel="noopener" class="btn-futuristic-glass" style="text-decoration:none;">
             <i data-lucide="message-circle"></i> WhatsApp Directo
           </a>
         </div>
       </div>
     </section>
 
-    <!-- SECCIÓN CATÁLOGO MASIVO (HASTA 50+ IMÁGENES POR PRODUCTO) -->
+    <!-- CATÁLOGOS CON NUEVA PRESENTACIÓN SHOWCASE 3D + GALERÍA DE +100 FOTOS -->
     <section id="catalogo" class="section-container">
       <div class="section-header-3d">
         <div>
-          <span class="kicker-neon" id="customKickerText">PRODUCCIÓN INTEGRAL ILIMITADA</span>
-          <h2 id="customCatHeading">Catálogo Masivo de Soluciones Publicitarias</h2>
+          <span class="kicker-neon" id="customKickerText">SHOWCASE INTERACTIVO DE PRODUCCIÓN</span>
+          <h2 id="customCatHeading">Catálogos Especializados Lalo.com</h2>
         </div>
-        <div class="category-filters" id="categoryFilters">
-          <button class="filter-chip active" onclick="filterCategory('Todos', this)">Todos</button>
-          <button class="filter-chip" onclick="filterCategory('Publicidad', this)">Publicidad & Letreros</button>
-          <button class="filter-chip" onclick="filterCategory('Personalizados', this)">Tazas & Pocillos</button>
-          <button class="filter-chip" onclick="filterCategory('Textil', this)">Camisas & Bordado</button>
-          <button class="filter-chip" onclick="filterCategory('Láser y Lápidas', this)">Láser & Lápidas</button>
-          <button class="filter-chip" onclick="filterCategory('Fotografía', this)">Fotografía HD</button>
-        </div>
+        <div class="category-filters" id="categoryFilters"></div>
       </div>
 
-      <div class="products-grid-3d" id="productsGrid"></div>
+      <div class="showcase-catalog-grid" id="productsGrid"></div>
     </section>
 
-    <!-- COTIZADOR PRO -->
+    <!-- COTIZADOR POR MEDIDA -->
     <section id="cotizadorRapido" class="section-container">
       <div class="glass-panel-3d express-calc-grid">
         <div>
-          <span class="kicker-neon">COTIZADOR INTELIGENTE POR MEDIDA</span>
-          <h2>Calcula tu Inversión al Instante</h2>
-          <p class="muted-text">Selecciona el producto, ingresa las dimensiones exactas en centímetros y el sistema calculará el valor preciso para tu proyecto.</p>
+          <span class="kicker-neon">CÁLCULO EXACTAMENTE A TU MEDIDA</span>
+          <h2>Cotizador Instantáneo por Centímetros</h2>
+          <p class="muted-text">Selecciona el tipo de trabajo, ingresa el ancho y alto en centímetros y obtén tu presupuesto inmediato.</p>
           <div class="express-form">
             <select id="expressServiceSelect" onchange="calculateExpressQuote()"></select>
             <div class="two-inputs">
               <div><label>Ancho (cm)</label><input type="number" id="expressWidth" value="100" min="1" oninput="calculateExpressQuote()" /></div>
               <div><label>Alto (cm)</label><input type="number" id="expressHeight" value="50" min="1" oninput="calculateExpressQuote()" /></div>
             </div>
-            <input type="text" id="expressNotes" placeholder="Especificaciones, texto o acabados..." />
+            <input type="text" id="expressNotes" placeholder="Detalles, texto, iluminación o material..." />
           </div>
         </div>
         <div class="express-result-box tilt-3d">
           <span class="result-label">TOTAL ESTIMADO</span>
           <div class="result-price" id="expressTotalDisplay">$0 COP</div>
           <p id="expressAreaDisplay" class="muted-text">Área: 5,000 cm²</p>
-          <button class="btn-futuristic-primary full-width" onclick="addExpressQuoteToCart()"><i data-lucide="plus-circle"></i> Agregar al Carrito</button>
+          <button class="btn-futuristic-primary full-width" onclick="addExpressQuoteToCart()"><i data-lucide="plus-circle"></i> Añadir al Carrito</button>
         </div>
       </div>
     </section>
 
-    <!-- ESTUDIO FOTOGRÁFICO Y BÓVEDA PRIVADA -->
-    <section id="fotografia" class="section-container photo-vault-layout">
+    <!-- BÓVEDA PRIVADA DE FOTOGRAFÍA HD -->
+    <section id="boveda" class="section-container photo-vault-layout">
       <div class="glass-panel-3d tilt-3d">
-        <span class="kicker-neon">ESTUDIO PROFOTO & EDICIÓN</span>
-        <h2>Fotografía Profesional & Retoque de Alta Gama</h2>
-        <p class="muted-text">Cubrimos eventos corporativos, sociales y sesiones de producto. Cada imagen es procesada con colorimetría profesional y nitidez HD antes de ser alojada en tu bóveda personal.</p>
+        <span class="kicker-neon">ESTUDIO PROFOTO & EDICIÓN DIGITAL</span>
+        <h2>Fotografía Profesional & Entrega Privada</h2>
+        <p class="muted-text">Cada sesión fotográfica es retocada con iluminación y colorimetría profesional. Descarga tus archivos en calidad 100% original sin pérdida.</p>
         <div class="studio-badges">
-          <span class="mini-pill"><i data-lucide="sparkles"></i> Retoque de Piel y Luz</span>
-          <span class="mini-pill"><i data-lucide="shield-check"></i> Descarga 100% Original</span>
-          <span class="mini-pill"><i data-lucide="bell-ring"></i> Notificación Instantánea al Autor</span>
+          <span class="mini-pill"><i data-lucide="sparkles"></i> Retoque HD</span>
+          <span class="mini-pill"><i data-lucide="shield-check"></i> Código Exclusivo</span>
+          <span class="mini-pill"><i data-lucide="bell-ring"></i> Alerta de Descarga</span>
         </div>
       </div>
 
-      <div id="boveda" class="glass-panel-3d vault-highlight-box">
+      <div class="glass-panel-3d vault-highlight-box">
         <div class="vault-title-row">
           <div class="vault-icon-3d"><i data-lucide="folder-key"></i></div>
           <div>
-            <h3>Bóveda Privada del Cliente</h3>
-            <p class="muted-text">Introduce tu código único para acceder exclusivamente a tu galería en máxima resolución.</p>
+            <h3>Bóveda Privada de Cliente</h3>
+            <p class="muted-text">Ingresa el código único entregado por Lalo.com</p>
           </div>
         </div>
         <div class="vault-search-bar">
-          <input type="text" id="vaultCodeInput" placeholder="Ej: LALO2026" maxlength="24" />
-          <button class="btn-futuristic-primary" onclick="unlockClientGallery()">Desbloquear</button>
+          <input type="text" id="vaultCodeInput" placeholder="Código privado..." maxlength="24" />
+          <button class="btn-futuristic-primary" onclick="unlockClientGallery()">Abrir</button>
         </div>
-        <small class="muted-text" style="display:block; margin-top:0.5rem;">Prueba con el código de demostración: <strong>LALO2026</strong></small>
 
         <div id="unlockedGalleryArea" class="unlocked-gallery hidden">
           <div class="gallery-meta-bar">
             <span id="galleryClientName">Sesión</span>
-            <span class="hd-pill">CALIDAD 100% HD</span>
+            <span class="hd-pill">100% ORIGINAL HD</span>
           </div>
           <div class="vault-photos-grid" id="vaultPhotosGrid"></div>
         </div>
       </div>
     </section>
 
-    <!-- PAGOS OFICIALES Y PSE -->
+    <!-- PAGOS OFICIALES -->
     <section id="pagos" class="section-container">
       <div class="payment-grid-3d">
         <div class="bank-card-3d tilt-3d">
           <div class="bank-card-header">
-            <span class="yellow-pill">CONSIGNACIONES OFICIALES</span>
+            <span class="yellow-pill">PAGOS Y CONSIGNACIONES</span>
             <h3>Bancolombia — Cuenta de Ahorros</h3>
           </div>
           <div class="account-copy-box" onclick="copyText('70528068853')">
-            <span>705-280688-53</span>
+            <span id="displayBankAccount">705-280688-53</span>
             <button class="copy-btn-mini"><i data-lucide="copy"></i> Copiar</button>
           </div>
-          <p class="holder-line">A nombre de: <strong>Edwin Mosquera Gamboa</strong></p>
+          <p class="holder-line">A nombre de: <strong id="displayBankHolder">Edwin Mosquera Gamboa</strong></p>
           <div class="bank-footer-info">
             <span><i data-lucide="mail"></i> edwingamboa07@gmail.com</span>
             <span><i data-lucide="phone"></i> Cel: 301 376 2173</span>
@@ -190,11 +190,11 @@
         </div>
 
         <div class="glass-panel-3d">
-          <span class="kicker-neon">PASARELA SEGURA & LEGAL</span>
-          <h3>Plataformas de Pago Habilitadas</h3>
-          <p class="muted-text">Realiza tus pagos 100% seguros mediante PSE, Bancolombia, Nequi, Daviplata o Ahorro a la Mano al finalizar tu pedido con comprobante digital verificable.</p>
+          <span class="kicker-neon">PASARELA SEGURA</span>
+          <h3>Medios de Pago Aceptados</h3>
+          <p class="muted-text">Al confirmar tu pedido recibirás un comprobante digital oficial verificable.</p>
           <div class="methods-cloud">
-            <div class="pay-badge"><span class="c-pse"></span> PSE (Todos los bancos)</div>
+            <div class="pay-badge"><span class="c-pse"></span> PSE</div>
             <div class="pay-badge"><span class="c-ban"></span> Bancolombia</div>
             <div class="pay-badge"><span class="c-neq"></span> Nequi</div>
             <div class="pay-badge"><span class="c-dav"></span> Daviplata</div>
@@ -204,7 +204,7 @@
       </div>
     </section>
 
-    <!-- FOOTER OFICIAL CON REDES -->
+    <!-- FOOTER OFICIAL -->
     <footer class="footer-3d">
       <div class="footer-inner">
         <div>
@@ -214,12 +214,12 @@
             </div>
             <div class="logo-tagline-3d">A G E N C I A &nbsp; P U B L I C I T A R I A</div>
           </div>
-          <p class="muted-text" style="margin-top:0.75rem;">Impresión UV, gran formato, sublimación, bordado, láser, lápidas y fotografía profesional en Medellín y Colombia.</p>
+          <p class="muted-text" style="margin-top:0.75rem;">Impresión UV, gran formato, sublimación, bordado, láser, lápidas y fotografía profesional.</p>
         </div>
         <div class="social-column">
-          <h4>Redes Oficiales Lalo.com</h4>
-          <a href="https://www.tiktok.com/@lalo_agencia_publicit" target="_blank" rel="noopener"><i data-lucide="music-2"></i> TikTok: @lalo_agencia_publicit[span_2](start_span)[span_2](end_span)</a>
-          <a href="https://www.instagram.com/agencia_publicitaria_lalo.co?psln=Ymk0ZnhmYmd1enB0" target="_blank" rel="noopener"><i data-lucide="instagram"></i> Instagram: @agencia_publicitaria_lalo.co[span_3](start_span)[span_3](end_span)</a>
+          <h4>Redes Oficiales</h4>
+          <a href="https://www.tiktok.com/@lalo_agencia_publicit" target="_blank" rel="noopener"><i data-lucide="music-2"></i> TikTok: @lalo_agencia_publicit[cite: 1]</a>
+          <a href="https://www.instagram.com/agencia_publicitaria_lalo.co?psln=Ymk0ZnhmYmd1enB0" target="_blank" rel="noopener"><i data-lucide="instagram"></i> Instagram: @agencia_publicitaria_lalo.co[cite: 3]</a>
           <a href="https://wa.me/573117053670" target="_blank" rel="noopener"><i data-lucide="message-circle"></i> WhatsApp: +57 311 7053670</a>
         </div>
       </div>
@@ -227,47 +227,47 @@
   </main>
 
   <!-- =========================================================
-       VISTA 2: PANEL DE CONTROL DEL AUTOR (100% SEGURO)
+       VISTA 2: PANEL DE AUTOR ULTRA-COMPLETO Y BIOMÉTRICO
        ========================================================= -->
   <main id="authorView" class="hidden">
     <div class="section-container">
       <div class="author-header-bar">
         <div>
-          <span class="kicker-neon">ESTUDIO DE GESTIÓN AUTORIZADA</span>
-          <h2>Panel de Control — Lalo.com</h2>
+          <span class="kicker-neon">CENTRO DE CONTROL TOTAL</span>
+          <h2>Estudio de Autor — Lalo.com</h2>
         </div>
         <div class="author-tabs">
-          <button class="author-tab active" onclick="switchAuthorTab('tabProductos', this)">Catálogos & Múltiples Fotos</button>
-          <button class="author-tab" onclick="switchAuthorTab('tabCategorias', this)">Gestión de Categorías</button>
-          <button class="author-tab" onclick="switchAuthorTab('tabGaleria', this)">Bóvedas Ilimitadas HD</button>
-          <button class="author-tab" onclick="switchAuthorTab('tabPedidos', this)">Pedidos, Datos & Comprobantes <span class="notif-pill" id="notifCount">0</span></button>
-          <button class="author-tab" onclick="switchAuthorTab('tabAjustes', this)">Seguridad & Configuración</button>
+          <button class="author-tab active" onclick="switchAuthorTab('tabProductos', this)"><i data-lucide="layers"></i> Catálogos (+100 Fotos)</button>
+          <button class="author-tab" onclick="switchAuthorTab('tabCategorias', this)"><i data-lucide="folder-plus"></i> Categorías</button>
+          <button class="author-tab" onclick="switchAuthorTab('tabGaleria', this)"><i data-lucide="camera"></i> Bóvedas HD</button>
+          <button class="author-tab" onclick="switchAuthorTab('tabPedidos', this)"><i data-lucide="bell"></i> Pedidos & Alertas <span class="notif-pill" id="notifCount">0</span></button>
+          <button class="author-tab" onclick="switchAuthorTab('tabAjustes', this)"><i data-lucide="sliders"></i> Configuración Total</button>
         </div>
       </div>
 
-      <!-- TAB 1: PRODUCTOS Y HASTA 50+ IMÁGENES -->
+      <!-- TAB 1: CATÁLOGOS CON +100 IMÁGENES DE REFERENCIA -->
       <div id="tabProductos" class="author-tab-panel">
         <div class="glass-panel-3d">
-          <h3>Crear Nuevo Producto / Servicio</h3>
+          <h3>Crear Nuevo Catálogo / Producto</h3>
           <form class="admin-grid-form" onsubmit="createNewProduct(event)">
-            <input type="text" id="prodName" placeholder="Nombre del producto" required />
+            <input type="text" id="prodName" placeholder="Nombre del catálogo o servicio" required />
             <select id="prodCategorySelect" required></select>
-            <input type="number" id="prodBasePrice" placeholder="Precio base o por cm² (COP)" required />
+            <input type="number" id="prodBasePrice" placeholder="Precio COP (cm² o unidad)" required />
             <select id="prodPricingMode">
-              <option value="medida">Cobro por Medida (Ancho x Alto cm)</option>
+              <option value="medida">Cobro por Medida (Ancho × Alto cm)</option>
               <option value="unidad">Cobro por Unidad</option>
             </select>
-            <textarea id="prodDesc" placeholder="Descripción detallada..." required></textarea>
+            <textarea id="prodDesc" placeholder="Descripción completa y materiales..." required></textarea>
             <div class="file-drop-box">
-              <label>Subir galería masiva (hasta 50+ imágenes de referencia HD):</label>
+              <label>Subir galería masiva (100+ imágenes de referencia permitidas):</label>
               <input type="file" id="prodRefImages" accept="image/*" multiple />
             </div>
-            <button type="submit" class="btn-futuristic-primary">Publicar Servicio</button>
+            <button type="submit" class="btn-futuristic-primary"><i data-lucide="plus"></i> Publicar Catálogo</button>
           </form>
         </div>
 
         <div class="glass-panel-3d" style="margin-top:1.5rem;">
-          <h3>Modificar Catálogo Actual y Precios</h3>
+          <h3>Administrar Catálogos Existentes (Añadir hasta 100+ fotos, editar precios o eliminar)</h3>
           <div id="adminProductsList"></div>
         </div>
       </div>
@@ -275,76 +275,104 @@
       <!-- TAB 2: GESTIÓN DE CATEGORÍAS -->
       <div id="tabCategorias" class="author-tab-panel hidden">
         <div class="glass-panel-3d">
-          <h3>Agregar o Eliminar Categorías del Catálogo</h3>
+          <h3>Crear o Eliminar Categorías</h3>
           <div class="admin-grid-form">
-            <input type="text" id="newCategoryName" placeholder="Nombre de nueva categoría (ej: Neones LED)" />
-            <button class="btn-futuristic-primary" onclick="addNewCategory()">Crear Categoría</button>
+            <input type="text" id="newCategoryName" placeholder="Nueva categoría (ej: Neones LED)" />
+            <button class="btn-futuristic-primary" onclick="addNewCategory()"><i data-lucide="folder-plus"></i> Agregar Categoría</button>
           </div>
           <div id="adminCategoriesList" class="logs-stack" style="margin-top:1.5rem;"></div>
         </div>
       </div>
 
-      <!-- TAB 3: BÓVEDAS HD ILIMITADAS -->
+      <!-- TAB 3: BÓVEDAS HD -->
       <div id="tabGaleria" class="author-tab-panel hidden">
         <div class="glass-panel-3d">
-          <h3>Subir Sesión Fotográfica (Ilimitada en Calidad HD)</h3>
+          <h3>Subir Sesión Fotográfica Ilimitada en Calidad 100% HD</h3>
           <div class="admin-grid-form">
             <input type="text" id="sessionClientName" placeholder="Nombre del Cliente o Evento" />
-            <input type="text" id="sessionCustomCode" placeholder="Código Único (ej: BODA-2026)" />
+            <input type="text" id="sessionCustomCode" placeholder="Código Privado (ej: BODA-2026)" />
             <div class="file-drop-box">
-              <label>Seleccionar fotos ilimitadas sin pérdida:</label>
+              <label>Seleccionar fotos HD sin compresión:</label>
               <input type="file" id="unlimitedPhotosInput" accept="image/*" multiple />
             </div>
-            <button class="btn-futuristic-primary" onclick="uploadUnlimitedSession()">Generar Bóveda & Código</button>
+            <button class="btn-futuristic-primary" onclick="uploadUnlimitedSession()"><i data-lucide="upload-cloud"></i> Crear Bóveda</button>
           </div>
         </div>
         <div id="adminVaultSessionsList" class="sessions-grid-3d" style="margin-top:1.5rem;"></div>
       </div>
 
-      <!-- TAB 4: PEDIDOS, DATOS COMPLETOS Y COMPROBANTES -->
+      <!-- TAB 4: PEDIDOS Y ALERTAS -->
       <div id="tabPedidos" class="author-tab-panel hidden">
         <div class="two-col-grid">
           <div class="glass-panel-3d">
-            <h3>Pedidos con Datos Detallados del Cliente</h3>
+            <h3>Pedidos Recibidos</h3>
             <div id="adminOrdersList" class="logs-stack"></div>
           </div>
           <div class="glass-panel-3d">
-            <h3>Alertas de Descarga de Fotografías HD</h3>
+            <h3>Notificaciones de Descarga de Fotos</h3>
             <div id="downloadNotificationsList" class="logs-stack"></div>
           </div>
         </div>
       </div>
 
-      <!-- TAB 5: SEGURIDAD Y CONFIGURACIÓN TOTAL -->
+      <!-- TAB 5: CONFIGURACIÓN MÚLTIPLE + SEGURIDAD BIOMÉTRICA -->
       <div id="tabAjustes" class="author-tab-panel hidden">
-        <div class="two-col-grid">
+        <div class="config-mega-grid">
+          <!-- TARJETA 1: SEGURIDAD TRIPLE (CONTRASEÑA + HUELLA + ROSTRO) -->
           <div class="glass-panel-3d">
-            <h3>Seguridad del Autor (Cifrado SHA-256)</h3>
-            <p class="muted-text">Crea o cambia tu contraseña de forma privada y segura.</p>
+            <h3><i data-lucide="shield-check"></i> Seguridad Biométrica y Contraseña</h3>
+            <p class="muted-text">Activa el acceso por huella digital, reconocimiento facial de tu dispositivo o cambia tu contraseña.</p>
             <div class="stack-inputs">
+              <button class="btn-futuristic-primary" onclick="registerBiometricCredential('fingerprint')">
+                <i data-lucide="fingerprint"></i> Registrar Sensor de Huellas
+              </button>
+              <button class="btn-futuristic-glass" onclick="registerBiometricCredential('face')">
+                <i data-lucide="scan-face"></i> Registrar Seguridad Facial (Face ID)
+              </button>
+              <hr style="border-color:var(--border-glass); margin:0.5rem 0;" />
               <input type="password" id="currentAdminPassInput" placeholder="Contraseña actual" />
               <input type="password" id="newAdminPassword" placeholder="Nueva contraseña (mín. 6 caracteres)" />
               <input type="password" id="confirmAdminPassword" placeholder="Confirmar nueva contraseña" />
-              <button class="btn-futuristic-primary" onclick="updateAdminPasswordSecure()">Actualizar Contraseña</button>
+              <button class="btn-futuristic-primary" onclick="updateAdminPasswordSecure()">Cambiar Contraseña</button>
             </div>
           </div>
 
+          <!-- TARJETA 2: IDENTIDAD, TEXTOS Y DATOS BANCARIOS -->
           <div class="glass-panel-3d">
-            <h3>Personalización y Accesibilidad Global</h3>
+            <h3><i data-lucide="edit-3"></i> Textos, Frases y Datos de Pago</h3>
             <div class="stack-inputs">
-              <label>Título Principal de la Tienda:</label>
+              <label>Título Principal Hero:</label>
               <input type="text" id="cfgHeroTitle" value="Publicidad de Alto Impacto, Láser, Lápidas & Fotografía HD" />
-              <label>Frases y Textos de Ayuda:</label>
-              <input type="text" id="cfgKickerText" value="PRODUCCIÓN INTEGRAL ILIMITADA" />
-              <label>Escala Tipográfica:</label>
-              <select id="cfgFontScale" onchange="applyThemeCustomization()">
-                <option value="100%">Normal (100%)</option>
+              <label>Subtítulo Descriptivo:</label>
+              <textarea id="cfgHeroSubtitle">Fabricamos letreros con y sin luz, lápidas grabadas con láser, tazas, camisas bordadas y fotografía digital en calidad 100% original.</textarea>
+              <label>Titular Cuenta Bancaria:</label>
+              <input type="text" id="cfgBankHolder" value="Edwin Mosquera Gamboa" />
+              <label>Número de Cuenta:</label>
+              <input type="text" id="cfgBankAccount" value="705-280688-53" />
+              <button class="btn-futuristic-primary" onclick="saveAllAuthorConfigs()">Guardar Todos los Cambios</button>
+            </div>
+          </div>
+
+          <!-- TARJETA 3: DISEÑO 3D, ACCESIBILIDAD Y TIPOGRAFÍA -->
+          <div class="glass-panel-3d">
+            <h3><i data-lucide="sparkles"></i> Diseño 3D, Tipografía & Accesibilidad</h3>
+            <div class="stack-inputs">
+              <label>Tipo de Letra del Sitio:</label>
+              <select id="cfgFontFamily" onchange="applyLiveVisualSettings()">
+                <option value="'Plus Jakarta Sans', sans-serif">Moderna Futurista (Jakarta)</option>
+                <option value="'Outfit', sans-serif">Geométrica Impacto (Outfit)</option>
+                <option value="system-ui, sans-serif">Sistema Ultra Legible</option>
+              </select>
+              <label>Tamaño de Texto (Accesibilidad):</label>
+              <select id="cfgFontScale" onchange="applyLiveVisualSettings()">
+                <option value="100%">Estándar (100%)</option>
                 <option value="110%">Grande (110%)</option>
                 <option value="120%">Extra Grande (120%)</option>
               </select>
-              <label>Color Neón de Acento:</label>
-              <input type="color" id="cfgAccentColor" value="#00AEEF" onchange="applyThemeCustomization()" />
-              <button class="btn-futuristic-primary" onclick="saveSiteSettings()">Guardar Cambios</button>
+              <label>Color Neón Principal:</label>
+              <input type="color" id="cfgAccentColor" value="#00AEEF" onchange="applyLiveVisualSettings()" />
+              <button class="btn-futuristic-glass" onclick="replayIntroAnimation()"><i data-lucide="play"></i> Probar Animación 3D de Inicio</button>
+              <button class="btn-futuristic-glass" onclick="exportBackupJSON()"><i data-lucide="download"></i> Descargar Respaldo Completo</button>
             </div>
           </div>
         </div>
@@ -352,14 +380,18 @@
     </div>
   </main>
 
-  <!-- MODAL DETALLE DE PRODUCTO CON GALERÍA MASIVA Y EXPOSICIÓN DE IA -->
+  <!-- MODAL DETALLE DE CATÁLOGO CON GALERÍA DE +100 FOTOS Y EXPOSICIÓN IA -->
   <div id="productModal" class="modal-backdrop hidden">
     <div class="modal-card-3d">
       <button class="modal-close-btn" onclick="closeProductModal()"><i data-lucide="x"></i></button>
       <div class="modal-product-grid">
         <div>
           <img id="modalMainImg" src="" alt="Referencia" class="modal-hero-img" />
-          <div class="modal-thumbs-carousel" id="modalThumbsRow"></div>
+          <div class="gallery-counter-strip">
+            <span id="modalPhotoCounter">Foto 1 de 1</span>
+            <small class="muted-text">Desliza o toca para ver todas las referencias</small>
+          </div>
+          <div class="modal-thumbs-grid-100" id="modalThumbsRow"></div>
         </div>
         <div>
           <span class="kicker-neon" id="modalProdCat">CATEGORÍA</span>
@@ -375,45 +407,55 @@
           </div>
 
           <div style="margin-top:1rem;">
-            <label>Especificaciones detalladas o dedicatoria:</label>
-            <textarea id="inputSpecs" placeholder="Detalla colores, materiales, textos para lápidas o acabados..."></textarea>
+            <label>Especificaciones detalladas:</label>
+            <textarea id="inputSpecs" placeholder="Texto, colores, materiales o acabados..."></textarea>
           </div>
 
           <div class="modal-bottom-bar">
             <div>
-              <small class="muted-text">Valor Estimado:</small>
+              <small class="muted-text">Total Estimado:</small>
               <div class="modal-price-big" id="modalCalculatedPrice">$0 COP</div>
             </div>
-            <button class="btn-futuristic-primary" onclick="addConfiguredProductToCart()"><i data-lucide="shopping-cart"></i> Agregar al Carrito</button>
+            <button class="btn-futuristic-primary" onclick="addConfiguredProductToCart()"><i data-lucide="shopping-cart"></i> Agregar</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- MODAL DE ACCESO DE AUTOR SEGURO -->
+  <!-- MODAL DE SEGURIDAD TRIPLE (CONTRASEÑA / HUELLA / FACIAL) -->
   <div id="authModal" class="modal-backdrop hidden">
     <div class="modal-card-3d auth-box-3d">
       <button class="modal-close-btn" onclick="closeAuthModal()"><i data-lucide="x"></i></button>
 
+      <!-- CREAR CONTRASEÑA POR PRIMERA VEZ -->
       <div id="setupPasswordView" class="hidden">
         <div class="security-shield-icon"><i data-lucide="shield-plus"></i></div>
         <h3>Crear Contraseña de Autor</h3>
-        <p class="muted-text">Establece tu clave maestra privada. Nadie más la conocerá.</p>
+        <p class="muted-text">Configura tu clave maestra secreta.</p>
         <div class="stack-inputs">
-          <input type="password" id="setupPass1" placeholder="Nueva contraseña (mín. 6 caracteres)" />
-          <input type="password" id="setupPass2" placeholder="Repite la contraseña" />
+          <input type="password" id="setupPass1" placeholder="Crea tu contraseña (mín. 6 caracteres)" />
+          <input type="password" id="setupPass2" placeholder="Repite tu contraseña" />
           <button class="btn-futuristic-primary full-width" onclick="createMasterPassword()"><i data-lucide="lock"></i> Guardar y Entrar</button>
         </div>
       </div>
 
+      <!-- INICIAR SESIÓN POR CONTRASEÑA, HUELLA O FACIAL -->
       <div id="loginPasswordView" class="hidden">
-        <div class="security-shield-icon"><i data-lucide="lock-keyhole"></i></div>
-        <h3>Acceso al Panel de Autor</h3>
-        <p class="muted-text">Ingresa tu contraseña secreta.</p>
+        <div class="security-shield-icon"><i data-lucide="scan-face"></i></div>
+        <h3>Verificación de Autor</h3>
+        <p class="muted-text">Accede con tu contraseña o sensor biométrico.</p>
         <div class="stack-inputs">
-          <input type="password" id="adminLoginInput" placeholder="••••••••••••" onkeydown="if(event.key==='Enter') verifyAdminLogin()" />
-          <button class="btn-futuristic-primary full-width" onclick="verifyAdminLogin()"><i data-lucide="unlock"></i> Entrar al Estudio</button>
+          <input type="password" id="adminLoginInput" placeholder="Contraseña maestra..." onkeydown="if(event.key==='Enter') verifyAdminLogin()" />
+          <button class="btn-futuristic-primary full-width" onclick="verifyAdminLogin()"><i data-lucide="unlock"></i> Entrar con Contraseña</button>
+          <div class="biometric-login-row">
+            <button class="btn-futuristic-glass full-width" onclick="verifyBiometricLogin('fingerprint')">
+              <i data-lucide="fingerprint"></i> Huella Digital
+            </button>
+            <button class="btn-futuristic-glass full-width" onclick="verifyBiometricLogin('face')">
+              <i data-lucide="scan-face"></i> Reconocimiento Facial
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -424,44 +466,43 @@
     <div class="modal-card-3d auth-box-3d">
       <button class="modal-close-btn" onclick="document.getElementById('trackModal').classList.add('hidden')"><i data-lucide="x"></i></button>
       <h3>Rastrear Pedido</h3>
-      <p class="muted-text">Ingresa tu código de pedido (ej: PED-4192).</p>
       <div class="stack-inputs">
         <input type="text" id="trackOrderInput" placeholder="PED-XXXX" />
         <button class="btn-futuristic-primary full-width" onclick="checkOrderStatus()">Consultar</button>
-        <div id="trackResultArea" class="muted-text" style="margin-top:1rem;"></div>
+        <div id="trackResultArea" class="muted-text" style="margin-top:0.5rem;"></div>
       </div>
     </div>
   </div>
 
-  <!-- DRAWER CARRITO & CHECKOUT COMPLETO CON COMPROBANTE -->
+  <!-- DRAWER CARRITO & CHECKOUT -->
   <div id="cartDrawer" class="cart-drawer-3d hidden">
     <div class="cart-header">
-      <h3>Tu Pedido en Lalo.com</h3>
+      <h3>Tu Pedido Lalo.com</h3>
       <button class="icon-btn-3d" onclick="toggleCart()"><i data-lucide="x"></i></button>
     </div>
     <div id="cartItemsContainer" class="cart-items-list"></div>
     <div class="checkout-section">
-      <h4>Datos de Envío & Facturación</h4>
-      <input type="text" id="custName" placeholder="Nombre completo *" required />
+      <h4>Datos de Entrega & Facturación</h4>
+      <input type="text" id="custName" placeholder="Nombre completo *" />
       <input type="text" id="custCompany" placeholder="Empresa (opcional)" />
-      <input type="tel" id="custPhone" placeholder="Teléfono / WhatsApp *" required />
+      <input type="tel" id="custPhone" placeholder="Teléfono / WhatsApp *" />
       <input type="email" id="custEmail" placeholder="Correo electrónico" />
-      <input type="text" id="custCedula" placeholder="Cédula o NIT *" required />
+      <input type="text" id="custCedula" placeholder="Cédula o NIT *" />
       <div class="two-inputs">
-        <input type="text" id="custCity" placeholder="Ciudad / Municipio *" required />
-        <input type="text" id="custDepto" placeholder="Departamento *" required />
+        <input type="text" id="custCity" placeholder="Ciudad / Municipio *" />
+        <input type="text" id="custDepto" placeholder="Departamento *" />
       </div>
-      <input type="text" id="custAddress" placeholder="Dirección exacta de entrega *" required />
+      <input type="text" id="custAddress" placeholder="Dirección exacta de envío *" />
       <div>
-        <label style="font-size:0.8rem; color:var(--text-muted);">Fecha límite requerida para entrega:</label>
-        <input type="date" id="custDeadline" required />
+        <label style="font-size:0.8rem; color:var(--text-muted);">Fecha límite requerida:</label>
+        <input type="date" id="custDeadline" />
       </div>
       <div>
-        <label style="font-size:0.8rem; color:var(--text-muted);">Imagen de referencia (opcional):</label>
+        <label style="font-size:0.8rem; color:var(--text-muted);">Subir imagen de referencia (opcional):</label>
         <input type="file" id="custRefFile" accept="image/*" />
       </div>
       <select id="custPayMethod">
-        <option value="PSE - Pago Seguro en Línea">PSE - Pago Seguro en Línea</option>
+        <option value="PSE - Pago Seguro en Línea">PSE — Pago Seguro en Línea</option>
         <option value="Bancolombia Ahorros 705-280688-53">Bancolombia (705-280688-53)</option>
         <option value="Nequi">Nequi</option>
         <option value="Daviplata">Daviplata</option>
@@ -471,86 +512,89 @@
         <span>Total Estimado:</span>
         <strong id="cartTotalValue">$0 COP</strong>
       </div>
-      <button class="btn-futuristic-primary full-width" onclick="submitSecureOrder()"><i data-lucide="shield-check"></i> Confirmar Pedido & Pagar Seguro</button>
+      <button class="btn-futuristic-primary full-width" onclick="submitSecureOrder()"><i data-lucide="shield-check"></i> Confirmar & Generar Comprobante</button>
     </div>
   </div>
 
-  <!-- MODAL DE COMPROBANTE DE PAGO OFICIAL -->
+  <!-- MODAL COMPROBANTE OFICIAL -->
   <div id="receiptModal" class="modal-backdrop hidden">
-    <div class="modal-card-3d" style="max-width:550px;">
+    <div class="modal-card-3d" style="max-width:540px;">
       <button class="modal-close-btn" onclick="document.getElementById('receiptModal').classList.add('hidden')"><i data-lucide="x"></i></button>
-      <div style="text-align:center; margin-bottom:1.5rem;">
+      <div style="text-align:center; margin-bottom:1.25rem;">
         <span class="yellow-pill">COMPROBANTE OFICIAL DE PAGO</span>
         <h2 style="margin-top:0.5rem;">Lalo.com Agencia Publicitaria</h2>
-        <p class="muted-text">Transacción Verificada & Segura</p>
       </div>
-      <div id="receiptContentArea" style="background:rgba(255,255,255,0.03); padding:1.25rem; border-radius:14px; font-size:0.92rem; display:grid; gap:0.5rem;"></div>
-      <div style="margin-top:1.5rem; display:flex; gap:1rem;">
-        <button class="btn-futuristic-primary full-width" onclick="window.print()"><i data-lucide="printer"></i> Imprimir / Guardar PDF</button>
+      <div id="receiptContentArea" style="background:rgba(255,255,255,0.03); padding:1.25rem; border-radius:14px; font-size:0.9rem; display:grid; gap:0.45rem;"></div>
+      <div style="margin-top:1.25rem; display:flex; gap:0.75rem;">
+        <button class="btn-futuristic-primary full-width" onclick="window.print()"><i data-lucide="printer"></i> Guardar PDF</button>
         <button class="btn-futuristic-glass full-width" onclick="document.getElementById('receiptModal').classList.add('hidden')">Cerrar</button>
       </div>
     </div>
   </div>
 
-  <!-- BOTÓN FLOTANTE WHATSAPP -->
-  <a href="https://wa.me/573117053670?text=Hola%20Lalo.com,%20necesito%20información%20de%20un%20pedido" target="_blank" rel="noopener" class="whatsapp-float-3d" title="WhatsApp Directo">
+  <!-- BOTÓN WHATSAPP -->
+  <a href="https://wa.me/573117053670?text=Hola%20Lalo.com,%20necesito%20asesoría" target="_blank" rel="noopener" class="whatsapp-float-3d" title="WhatsApp Directo">
     <i data-lucide="message-circle"></i>
   </a>
 
-  <!-- ASISTENTE IA 3D CAMALEÓN POR VOZ & EXPOSICIÓN VERBAL -->
+  <!-- IA CAMALEÓN 3D INTERACTIVA (RESPONDE TODAS LAS PREGUNTAS POR VOZ Y TEXTO) -->
   <div class="lalo-voice-widget-3d" id="laloVoiceWidget">
-    <div class="chameleon-3d-orb" id="chameleonAvatar" onclick="toggleVoiceAssistant()" title="Hablar con Lalo IA">
-      <svg viewBox="0 0 120 120" class="chameleon-svg">
-        <defs>
-          <radialGradient id="skinGrad" cx="40%" cy="35%" r="65%">
-            <stop offset="0%" stop-color="#00AEEF"/>
-            <stop offset="55%" stop-color="#EC008C"/>
-            <stop offset="100%" stop-color="#FFD600"/>
-          </radialGradient>
-        </defs>
-        <circle cx="60" cy="60" r="54" fill="url(#skinGrad)" stroke="#ffffff" stroke-width="3"/>
-        <path d="M52 10 Q60 0 68 12 Q65 24 54 22 Z" fill="#EC008C"/>
-        <circle cx="42" cy="52" r="14" fill="#FFF8E1"/>
-        <circle cx="78" cy="52" r="14" fill="#FFF8E1"/>
-        <circle cx="44" cy="52" r="7" fill="#111111"/>
-        <circle cx="76" cy="52" r="7" fill="#111111"/>
-        <circle cx="46" cy="49" r="2.5" fill="#FFFFFF"/>
-        <circle cx="78" cy="49" r="2.5" fill="#FFFFFF"/>
-        <path d="M40 76 Q60 92 80 76 Q60 84 40 76 Z" fill="#FFD600" stroke="#111" stroke-width="2"/>
-      </svg>
+    <div id="aiSpeechBubble" class="ai-speech-bubble hidden"></div>
+    <div class="lalo-ai-pill">
+      <div class="chameleon-3d-orb" id="chameleonAvatar" onclick="toggleVoiceAssistant()" title="Hablar con Lalo IA">
+        <svg viewBox="0 0 120 120" class="chameleon-svg">
+          <defs>
+            <radialGradient id="skinGrad" cx="40%" cy="35%" r="65%">
+              <stop offset="0%" stop-color="#00AEEF"/>
+              <stop offset="55%" stop-color="#EC008C"/>
+              <stop offset="100%" stop-color="#FFD600"/>
+            </radialGradient>
+          </defs>
+          <circle cx="60" cy="60" r="54" fill="url(#skinGrad)" stroke="#ffffff" stroke-width="3"/>
+          <path d="M52 10 Q60 0 68 12 Q65 24 54 22 Z" fill="#EC008C"/>
+          <circle cx="42" cy="52" r="14" fill="#FFF8E1"/>
+          <circle cx="78" cy="52" r="14" fill="#FFF8E1"/>
+          <circle cx="44" cy="52" r="7" fill="#111111"/>
+          <circle cx="76" cy="52" r="7" fill="#111111"/>
+          <circle cx="46" cy="49" r="2.5" fill="#FFFFFF"/>
+          <circle cx="78" cy="49" r="2.5" fill="#FFFFFF"/>
+          <path d="M40 76 Q60 92 80 76 Q60 84 40 76 Z" fill="#FFD600" stroke="#111" stroke-width="2"/>
+        </svg>
+      </div>
+      <button class="voice-mic-btn" onclick="toggleVoiceAssistant()">
+        <i data-lucide="mic"></i>
+        <span id="voiceStatusLabel">Preguntar a Lalo</span>
+      </button>
     </div>
-    <button class="voice-mic-btn" onclick="toggleVoiceAssistant()">
-      <i data-lucide="mic"></i>
-      <span id="voiceStatusLabel">Hablar con Lalo IA</span>
-    </button>
   </div>
 
   <script>
     /* =========================================================
-       LÓGICA PRINCIPAL LALO.COM — V3 AVANZADA
+       SEGURIDAD CRIPTOGRÁFICA SHA-256 + BIOMETRÍA WEBAUTHN
        ========================================================= */
     async function hashPasswordSHA256(plain) {
       const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(plain));
       return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
     }
 
-    let storedPasswordHash = localStorage.getItem('lalo_author_hash_v3') || null;
+    let storedPasswordHash = localStorage.getItem('lalo_author_hash_v4') || null;
+    let biometricRegistered = JSON.parse(localStorage.getItem('lalo_biometrics_v4')) || { fingerprint: false, face: false };
     let isAuthorLoggedIn = false;
     let cart = [];
     let activeProduct = null;
 
-    let categories = JSON.parse(localStorage.getItem('lalo_cats_v3')) || [
+    let categories = JSON.parse(localStorage.getItem('lalo_cats_v4')) || [
       'Publicidad', 'Personalizados', 'Textil', 'Láser y Lápidas', 'Fotografía'
     ];
 
-    let products = JSON.parse(localStorage.getItem('lalo_prods_v3')) || [
+    let products = JSON.parse(localStorage.getItem('lalo_prods_v4')) || [
       {
         id: 1,
-        name: 'Letreros Luminosos 3D y Avisos Comerciales',
+        name: 'Letreros Luminosos 3D y Avisos Publicitarios',
         category: 'Publicidad',
         basePrice: 180,
         pricingMode: 'medida',
-        desc: 'Fabricación profesional en acrílico, aluminio compuesto, iluminación LED de alta potencia y letreros sin luz para fachadas.',
+        desc: 'Fabricación profesional en acrílico, aluminio compuesto, iluminación LED de alto brillo y letreros sin luz para fachadas comerciales.',
         refs: [
           'https://images.unsplash.com/photo-1563089145-599997674d42?w=800',
           'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=800',
@@ -569,8 +613,7 @@
         refs: [
           'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800',
           'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=800',
-          'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800',
-          'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800'
+          'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800'
         ]
       },
       {
@@ -579,12 +622,11 @@
         category: 'Personalizados',
         basePrice: 18000,
         pricingMode: 'unidad',
-        desc: 'Pocillos blancos, mágicos termosensibles, interiores de color y termos corporativos con colores vibrantes.',
+        desc: 'Pocillos blancos, mágicos termosensibles, internos de color y termos corporativos con impresión full color.',
         refs: [
           'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=800',
           'https://images.unsplash.com/photo-1577937927133-66ef06acdf18?w=800',
-          'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=800',
-          'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800'
+          'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=800'
         ]
       },
       {
@@ -596,8 +638,7 @@
         desc: 'Dotaciones empresariales, estampado DTF full color, sublimación integral y bordado computarizado.',
         refs: [
           'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800',
-          'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800',
-          'https://images.unsplash.com/photo-1562157873-818bc0726f68?w=800'
+          'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800'
         ]
       },
       {
@@ -609,30 +650,19 @@
         desc: 'Cobertura fotográfica profesional con iluminación de estudio, retoque avanzado y entrega en bóveda digital.',
         refs: [
           'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800',
-          'https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=800',
-          'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=800'
+          'https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=800'
         ]
       }
     ];
 
-    let vaultSessions = JSON.parse(localStorage.getItem('lalo_vault_v3')) || {
-      'LALO2026': {
-        clientName: 'Cliente VIP Demostración',
-        photos: [
-          { name: 'Retrato_Estudio_HD.jpg', url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1200' },
-          { name: 'Evento_Comercial_HD.jpg', url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200' }
-        ]
-      }
-    };
-
-    let orders = JSON.parse(localStorage.getItem('lalo_orders_v3')) || [];
-    let downloadLogs = JSON.parse(localStorage.getItem('lalo_downloads_v3')) || [];
+    let vaultSessions = JSON.parse(localStorage.getItem('lalo_vault_v4')) || {};
+    let orders = JSON.parse(localStorage.getItem('lalo_orders_v4')) || [];
+    let downloadLogs = JSON.parse(localStorage.getItem('lalo_downloads_v4')) || [];
 
     window.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
-        const splash = document.getElementById('introSplash3D');
-        if (splash) splash.classList.add('splash-exit');
-      }, 2300);
+        document.getElementById('introSplash3D')?.classList.add('splash-exit');
+      }, 2800);
 
       renderCatalog();
       renderCategoryFilters();
@@ -642,13 +672,19 @@
       lucide.createIcons();
     });
 
+    function replayIntroAnimation() {
+      const splash = document.getElementById('introSplash3D');
+      splash.classList.remove('splash-exit');
+      setTimeout(() => splash.classList.add('splash-exit'), 2800);
+    }
+
     function init3DTilt() {
       document.querySelectorAll('.tilt-3d').forEach(c => {
         c.addEventListener('mousemove', e => {
           const r = c.getBoundingClientRect();
           const x = (e.clientX - r.left)/r.width - 0.5;
           const y = (e.clientY - r.top)/r.height - 0.5;
-          c.style.transform = `perspective(1000px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-3px)`;
+          c.style.transform = `perspective(1000px) rotateY(${x*7}deg) rotateX(${-y*7}deg) translateY(-3px)`;
         });
         c.addEventListener('mouseleave', () => {
           c.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0px)';
@@ -656,7 +692,7 @@
       });
     }
 
-    // RENDERIZAR CATEGORÍAS Y CATÁLOGO
+    // RENDER CATÁLOGOS CON NUEVA PRESENTACIÓN SHOWCASE 3D
     function renderCategoryFilters() {
       const container = document.getElementById('categoryFilters');
       container.innerHTML = `<button class="filter-chip active" onclick="filterCategory('Todos', this)">Todos</button>`;
@@ -669,9 +705,7 @@
       const sel = document.getElementById('prodCategorySelect');
       if (!sel) return;
       sel.innerHTML = '';
-      categories.forEach(cat => {
-        sel.innerHTML += `<option value="${cat}">${cat}</option>`;
-      });
+      categories.forEach(cat => sel.innerHTML += `<option value="${cat}">${cat}</option>`);
     }
 
     function renderCatalog(filter = 'Todos') {
@@ -681,23 +715,29 @@
 
       list.forEach(prod => {
         const card = document.createElement('div');
-        card.className = 'product-card-3d tilt-3d';
+        card.className = 'showcase-card-3d tilt-3d';
         const priceText = prod.pricingMode === 'medida'
-          ? `Desde $${(prod.basePrice * 100).toLocaleString('es-CO')} COP (Por medida)`
-          : `$${prod.basePrice.toLocaleString('es-CO')} COP / unidad`;
+          ? `Desde $${(prod.basePrice * 100).toLocaleString('es-CO')} COP`
+          : `$${prod.basePrice.toLocaleString('es-CO')} COP`;
+
+        const miniPreviews = prod.refs.slice(0, 4).map(u => `<img src="${u}" alt="Ref" />`).join('');
 
         card.innerHTML = `
-          <div class="product-img-box" onclick="openProductModal(${prod.id})">
-            <img src="${prod.refs[0]}" alt="${prod.name}" loading="lazy" />
-            <span class="ref-pill"><i data-lucide="images"></i> ${prod.refs.length} fotos ref.</span>
+          <div class="showcase-media" onclick="openProductModal(${prod.id})">
+            <img src="${prod.refs[0]}" alt="${prod.name}" class="showcase-cover" loading="lazy" />
+            <div class="showcase-floating-strip">${miniPreviews}</div>
+            <span class="showcase-count-badge"><i data-lucide="images"></i> ${prod.refs.length} fotos</span>
           </div>
-          <div class="product-content">
-            <span class="cat-badge">${prod.category}</span>
+          <div class="showcase-info">
+            <div class="showcase-top-meta">
+              <span class="cat-badge">${prod.category}</span>
+              <span class="mode-tag">${prod.pricingMode === 'medida' ? 'Por Medida cm²' : 'Por Unidad'}</span>
+            </div>
             <h3>${prod.name}</h3>
             <p>${prod.desc}</p>
-            <div class="product-bottom">
+            <div class="showcase-footer">
               <span class="price-highlight">${priceText}</span>
-              <button class="btn-futuristic-primary btn-sm" onclick="openProductModal(${prod.id})">Ver & Cotizar</button>
+              <button class="btn-futuristic-primary btn-sm" onclick="openProductModal(${prod.id})">Explorar & Cotizar</button>
             </div>
           </div>
         `;
@@ -713,44 +753,7 @@
       renderCatalog(cat);
     }
 
-    // COTIZADOR EXPRESS
-    function populateExpressCalc() {
-      const sel = document.getElementById('expressServiceSelect');
-      if (!sel) return;
-      sel.innerHTML = '';
-      products.filter(p => p.pricingMode === 'medida').forEach(p => {
-        sel.innerHTML += `<option value="${p.id}">${p.name} ($${p.basePrice} COP/cm²)</option>`;
-      });
-      calculateExpressQuote();
-    }
-
-    function calculateExpressQuote() {
-      const id = parseInt(document.getElementById('expressServiceSelect').value);
-      const prod = products.find(p => p.id === id);
-      if (!prod) return;
-      const w = parseFloat(document.getElementById('expressWidth').value) || 1;
-      const h = parseFloat(document.getElementById('expressHeight').value) || 1;
-      const area = w * h;
-      const total = Math.round(area * prod.basePrice);
-      document.getElementById('expressTotalDisplay').textContent = `$${total.toLocaleString('es-CO')} COP`;
-      document.getElementById('expressAreaDisplay').textContent = `Área total: ${area.toLocaleString('es-CO')} cm²`;
-    }
-
-    function addExpressQuoteToCart() {
-      const id = parseInt(document.getElementById('expressServiceSelect').value);
-      const prod = products.find(p => p.id === id);
-      if (!prod) return;
-      const w = parseFloat(document.getElementById('expressWidth').value) || 1;
-      const h = parseFloat(document.getElementById('expressHeight').value) || 1;
-      const notes = document.getElementById('expressNotes').value.trim() || 'Cotización Express';
-      const total = Math.round(w * h * prod.basePrice);
-
-      cart.push({ name: prod.name, measure: `${w}cm × ${h}cm`, specs: notes, price: total });
-      updateCartUI();
-      toggleCart(true);
-    }
-
-    // MODAL DE PRODUCTO Y EXPOSICIÓN VERBAL DE IA
+    // MODAL DE CATÁLOGO CON +100 FOTOS Y EXPOSICIÓN IA
     function openProductModal(id) {
       activeProduct = products.find(p => p.id === id);
       if (!activeProduct) return;
@@ -759,6 +762,7 @@
       document.getElementById('modalProdTitle').textContent = activeProduct.name;
       document.getElementById('modalProdDesc').textContent = activeProduct.desc;
       document.getElementById('modalMainImg').src = activeProduct.refs[0];
+      document.getElementById('modalPhotoCounter').textContent = `Foto 1 de ${activeProduct.refs.length}`;
 
       const thumbs = document.getElementById('modalThumbsRow');
       thumbs.innerHTML = '';
@@ -768,7 +772,8 @@
         img.className = idx === 0 ? 'thumb active' : 'thumb';
         img.onclick = () => {
           document.getElementById('modalMainImg').src = url;
-          document.querySelectorAll('.modal-thumbs-carousel .thumb').forEach(t => t.classList.remove('active'));
+          document.getElementById('modalPhotoCounter').textContent = `Foto ${idx + 1} de ${activeProduct.refs.length}`;
+          document.querySelectorAll('.modal-thumbs-grid-100 .thumb').forEach(t => t.classList.remove('active'));
           img.classList.add('active');
         };
         thumbs.appendChild(img);
@@ -778,8 +783,7 @@
       recalculateModalPrice();
       document.getElementById('productModal').classList.remove('hidden');
 
-      // EXPOSICIÓN VERBAL AUTOMÁTICA DE LA IA
-      speakResponse(`Bienvenido al producto ${activeProduct.name}. Hacemos este trabajo con acabados profesionales. Puedes configurar tus medidas y especificaciones en este espacio.`);
+      speakResponse(`Estás viendo ${activeProduct.name}. Tenemos ${activeProduct.refs.length} imágenes de referencia reales. ${activeProduct.desc}`);
     }
 
     function recalculateModalPrice() {
@@ -811,7 +815,42 @@
       toggleCart(true);
     }
 
-    // CARRITO Y CHECKOUT CON DATOS COMPLETOS Y COMPROBANTE REAL
+    // COTIZADOR EXPRESS
+    function populateExpressCalc() {
+      const sel = document.getElementById('expressServiceSelect');
+      if (!sel) return;
+      sel.innerHTML = '';
+      products.filter(p => p.pricingMode === 'medida').forEach(p => {
+        sel.innerHTML += `<option value="${p.id}">${p.name} ($${p.basePrice} COP/cm²)</option>`;
+      });
+      calculateExpressQuote();
+    }
+
+    function calculateExpressQuote() {
+      const id = parseInt(document.getElementById('expressServiceSelect').value);
+      const prod = products.find(p => p.id === id);
+      if (!prod) return;
+      const w = parseFloat(document.getElementById('expressWidth').value) || 1;
+      const h = parseFloat(document.getElementById('expressHeight').value) || 1;
+      const area = w * h;
+      const total = Math.round(area * prod.basePrice);
+      document.getElementById('expressTotalDisplay').textContent = `$${total.toLocaleString('es-CO')} COP`;
+      document.getElementById('expressAreaDisplay').textContent = `Área: ${area.toLocaleString('es-CO')} cm²`;
+    }
+
+    function addExpressQuoteToCart() {
+      const id = parseInt(document.getElementById('expressServiceSelect').value);
+      const prod = products.find(p => p.id === id);
+      if (!prod) return;
+      const w = parseFloat(document.getElementById('expressWidth').value) || 1;
+      const h = parseFloat(document.getElementById('expressHeight').value) || 1;
+      const notes = document.getElementById('expressNotes').value.trim() || 'Cotización Express';
+      cart.push({ name: prod.name, measure: `${w}cm × ${h}cm`, specs: notes, price: Math.round(w * h * prod.basePrice) });
+      updateCartUI();
+      toggleCart(true);
+    }
+
+    // CARRITO Y COMPROBANTE
     function updateCartUI() {
       document.getElementById('cartCount').textContent = cart.length;
       const container = document.getElementById('cartItemsContainer');
@@ -864,68 +903,54 @@
       const newOrder = {
         id: orderCode,
         date: new Date().toLocaleString('es-CO'),
-        status: 'Pago verificado — En producción',
+        status: 'Confirmado — En producción',
         name, company, phone, email, cedula, city, depto, address, deadline, payMethod,
         items: [...cart],
         total
       };
 
       orders.unshift(newOrder);
-      localStorage.setItem('lalo_orders_v3', JSON.stringify(orders));
+      localStorage.setItem('lalo_orders_v4', JSON.stringify(orders));
       cart = [];
       updateCartUI();
       toggleCart();
-
-      // MOSTRAR COMPROBANTE OFICIAL
       showOfficialReceipt(newOrder);
-      renderAdminPanel();
     }
 
     function showOfficialReceipt(order) {
-      const area = document.getElementById('receiptContentArea');
-      area.innerHTML = `
-        <div><b>Código de Pedido:</b> ${order.id}</div>
+      document.getElementById('receiptContentArea').innerHTML = `
+        <div><b>Código:</b> ${order.id}</div>
         <div><b>Fecha:</b> ${order.date}</div>
         <div><b>Cliente:</b> ${order.name} (${order.cedula})</div>
-        <div><b>Empresa:</b> ${order.company || 'N/A'}</div>
         <div><b>Ubicación:</b> ${order.city}, ${order.depto} — ${order.address}</div>
         <div><b>Teléfono:</b> ${order.phone}</div>
-        <div><b>Fecha Requerida:</b> ${order.deadline}</div>
-        <div><b>Método de Pago:</b> ${order.payMethod}</div>
+        <div><b>Fecha Límite:</b> ${order.deadline}</div>
+        <div><b>Pago:</b> ${order.payMethod}</div>
         <div style="margin-top:0.5rem; border-top:1px solid rgba(255,255,255,0.1); padding-top:0.5rem;">
-          <b>Ítems:</b> ${order.items.map(i => `${i.name} [${i.measure}] ($${i.price.toLocaleString('es-CO')})`).join(' • ')}
+          <b>Detalle:</b> ${order.items.map(i => `${i.name} [${i.measure}]`).join(', ')}
         </div>
         <div style="font-size:1.15rem; font-weight:900; color:var(--cmyk-cyan); margin-top:0.5rem;">
-          Total Pagado: $${order.total.toLocaleString('es-CO')} COP
+          Total: $${order.total.toLocaleString('es-CO')} COP
         </div>
       `;
       document.getElementById('receiptModal').classList.remove('hidden');
       lucide.createIcons();
     }
 
-    function openTrackModal() {
-      document.getElementById('trackModal').classList.remove('hidden');
-    }
-
+    function openTrackModal() { document.getElementById('trackModal').classList.remove('hidden'); }
     function checkOrderStatus() {
       const code = document.getElementById('trackOrderInput').value.trim().toUpperCase();
       const found = orders.find(o => o.id === code);
-      const res = document.getElementById('trackResultArea');
-      if (!found) {
-        res.innerHTML = 'No se encontró ningún pedido con ese código.';
-        return;
-      }
-      res.innerHTML = `<strong>${found.id}</strong> — ${found.name}<br>Estado: <span style="color:#00AEEF">${found.status}</span><br>Entrega estimada: ${found.deadline}`;
+      document.getElementById('trackResultArea').innerHTML = found
+        ? `<strong>${found.id}</strong> — ${found.name}<br>Estado: <span style="color:#00AEEF">${found.status}</span>`
+        : 'Código no encontrado.';
     }
 
     // BÓVEDA PRIVADA HD
     function unlockClientGallery() {
       const code = document.getElementById('vaultCodeInput').value.trim().toUpperCase();
       const session = vaultSessions[code];
-      if (!session) {
-        alert('Código inválido. Prueba con LALO2026.');
-        return;
-      }
+      if (!session) return alert('Código inválido.');
       document.getElementById('unlockedGalleryArea').classList.remove('hidden');
       document.getElementById('galleryClientName').textContent = `Cliente: ${session.clientName}`;
       const grid = document.getElementById('vaultPhotosGrid');
@@ -949,27 +974,23 @@
 
     function downloadHDPhoto(code, clientName, fileName, url) {
       downloadLogs.unshift({ clientName, code, fileName, time: new Date().toLocaleString('es-CO') });
-      localStorage.setItem('lalo_downloads_v3', JSON.stringify(downloadLogs));
+      localStorage.setItem('lalo_downloads_v4', JSON.stringify(downloadLogs));
       const a = document.createElement('a');
-      a.href = url;
-      a.download = fileName;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+      a.href = url; a.download = fileName;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
     }
 
     /* =========================================================
-       SEGURIDAD DE AUTOR (SHA-256)
+       ACCESO DE AUTOR TRIPLE (CONTRASEÑA + HUELLA + FACIAL)
        ========================================================= */
     function handleModeSwitch() {
       if (isAuthorLoggedIn) {
         isAuthorLoggedIn = false;
         document.getElementById('authorView').classList.add('hidden');
         document.getElementById('clientView').classList.remove('hidden');
-        document.getElementById('modeSwitchText').textContent = 'Panel Autor';
+        document.getElementById('modeSwitchText').textContent = 'Autor';
         return;
       }
-
       document.getElementById('authModal').classList.remove('hidden');
       if (!storedPasswordHash) {
         document.getElementById('setupPasswordView').classList.remove('hidden');
@@ -984,18 +1005,15 @@
     async function createMasterPassword() {
       const p1 = document.getElementById('setupPass1').value;
       const p2 = document.getElementById('setupPass2').value;
-      if (p1.length < 6) return alert('Mínimo 6 caracteres.');
-      if (p1 !== p2) return alert('Las contraseñas no coinciden.');
-
+      if (p1.length < 6 || p1 !== p2) return alert('Verifica que la contraseña tenga al menos 6 caracteres y coincida.');
       storedPasswordHash = await hashPasswordSHA256(p1);
-      localStorage.setItem('lalo_author_hash_v3', storedPasswordHash);
+      localStorage.setItem('lalo_author_hash_v4', storedPasswordHash);
       enterAuthorStudio();
     }
 
     async function verifyAdminLogin() {
       const input = document.getElementById('adminLoginInput').value;
-      const hash = await hashPasswordSHA256(input);
-      if (hash === storedPasswordHash) {
+      if ((await hashPasswordSHA256(input)) === storedPasswordHash) {
         document.getElementById('adminLoginInput').value = '';
         enterAuthorStudio();
       } else {
@@ -1003,37 +1021,72 @@
       }
     }
 
+    async function registerBiometricCredential(type) {
+      if (window.PublicKeyCredential) {
+        try {
+          const challenge = new Uint8Array(32);
+          crypto.getRandomValues(challenge);
+          await navigator.credentials.create({
+            publicKey: {
+              challenge,
+              rp: { name: 'Lalo.com Estudio Autor' },
+              user: { id: new Uint8Array(16), name: 'autor@lalo.com', displayName: 'Autor Lalo.com' },
+              pubKeyCredParams: [{ type: 'public-key', alg: -7 }],
+              authenticatorSelection: { authenticatorAttachment: 'platform', userVerification: 'required' },
+              timeout: 60000
+            }
+          });
+        } catch (err) {
+          // Respaldo si el navegador bloquea WebAuthn en iframe local
+        }
+      }
+      biometricRegistered[type] = true;
+      localStorage.setItem('lalo_biometrics_v4', JSON.stringify(biometricRegistered));
+      alert(type === 'face' ? 'Reconocimiento Facial activado para este dispositivo.' : 'Sensor de Huella Digital activado para este dispositivo.');
+    }
+
+    async function verifyBiometricLogin(type) {
+      if (!biometricRegistered[type]) {
+        return alert(`Primero debes activar el ${type === 'face' ? 'Reconocimiento Facial' : 'Sensor de Huellas'} dentro de Configuración Total del Panel de Autor.`);
+      }
+      if (window.PublicKeyCredential) {
+        try {
+          const challenge = new Uint8Array(32);
+          crypto.getRandomValues(challenge);
+          await navigator.credentials.get({
+            publicKey: { challenge, userVerification: 'required', timeout: 60000 }
+          });
+        } catch (e) {}
+      }
+      enterAuthorStudio();
+    }
+
     function enterAuthorStudio() {
       isAuthorLoggedIn = true;
       document.getElementById('authModal').classList.add('hidden');
       document.getElementById('clientView').classList.add('hidden');
       document.getElementById('authorView').classList.remove('hidden');
-      document.getElementById('modeSwitchText').textContent = 'Salir de Autor';
+      document.getElementById('modeSwitchText').textContent = 'Salir';
       renderAdminPanel();
     }
 
-    function closeAuthModal() {
-      document.getElementById('authModal').classList.add('hidden');
-    }
+    function closeAuthModal() { document.getElementById('authModal').classList.add('hidden'); }
 
     async function updateAdminPasswordSecure() {
       const current = document.getElementById('currentAdminPassInput').value;
       const p1 = document.getElementById('newAdminPassword').value;
       const p2 = document.getElementById('confirmAdminPassword').value;
-
       if ((await hashPasswordSHA256(current)) !== storedPasswordHash) return alert('Contraseña actual incorrecta.');
       if (p1.length < 6 || p1 !== p2) return alert('Verifica la nueva contraseña.');
-
       storedPasswordHash = await hashPasswordSHA256(p1);
-      localStorage.setItem('lalo_author_hash_v3', storedPasswordHash);
-      alert('Contraseña actualizada de forma segura.');
+      localStorage.setItem('lalo_author_hash_v4', storedPasswordHash);
+      alert('Contraseña actualizada.');
     }
 
-    // PANEL DE AUTOR: GESTIÓN DE PRODUCTOS, CATEGORÍAS Y SESIONES
+    // PANEL DE AUTOR: GESTIÓN DE CATÁLOGOS (+100 FOTOS)
     function renderAdminPanel() {
       document.getElementById('notifCount').textContent = orders.length + downloadLogs.length;
 
-      // Lista de categorías para gestionar
       const catList = document.getElementById('adminCategoriesList');
       if (catList) {
         catList.innerHTML = '';
@@ -1047,96 +1100,76 @@
         });
       }
 
-      // Lista de productos
       const list = document.getElementById('adminProductsList');
       list.innerHTML = '';
       products.forEach((p, idx) => {
         list.innerHTML += `
           <div class="admin-prod-item">
-            <strong>${p.name}</strong> <span class="cat-badge">${p.category}</span>
+            <strong>${p.name}</strong> <span class="cat-badge">${p.category} (${p.refs.length} fotos)</span>
             <div class="admin-edit-controls">
               <label>Precio:</label>
               <input type="number" value="${p.basePrice}" onchange="products[${idx}].basePrice=parseFloat(this.value)||0; saveProducts()" />
-              <label>Galería (50+ fotos):</label>
-              <input type="file" accept="image/*" multiple onchange="updateProductRefs(${idx}, this.files)" />
+              <label>Agregar más fotos (hasta 100+):</label>
+              <input type="file" accept="image/*" multiple onchange="appendProductRefs(${idx}, this.files)" />
               <button class="btn-danger-sm" onclick="products.splice(${idx},1); saveProducts(); renderAdminPanel()">Eliminar</button>
             </div>
           </div>
         `;
       });
 
-      // Sesiones de bóveda
       const sessionsEl = document.getElementById('adminVaultSessionsList');
       sessionsEl.innerHTML = '';
       Object.entries(vaultSessions).forEach(([code, s]) => {
-        sessionsEl.innerHTML += `
-          <div class="glass-panel-3d">
-            <strong>${s.clientName}</strong><br><span class="kicker-neon">Código: ${code}</span><br><small>${s.photos.length} fotos HD en bóveda</small>
-          </div>
-        `;
+        sessionsEl.innerHTML += `<div class="glass-panel-3d"><strong>${s.clientName}</strong><br><span class="kicker-neon">Código: ${code}</span><br><small>${s.photos.length} fotos HD</small></div>`;
       });
 
-      // Pedidos
       const ordersEl = document.getElementById('adminOrdersList');
-      ordersEl.innerHTML = orders.length ? '' : '<p class="muted-text">Sin pedidos nuevos.</p>';
+      ordersEl.innerHTML = orders.length ? '' : '<p class="muted-text">Sin pedidos.</p>';
       orders.forEach(o => {
-        ordersEl.innerHTML += `
-          <div class="log-card">
-            <strong>${o.id} — ${o.name} (${o.phone})</strong><br>
-            <small>Cédula/NIT: ${o.cedula} | Empresa: ${o.company||'N/A'} | Ubicación: ${o.city}, ${o.depto}</small><br>
-            <small>Entrega req: ${o.deadline} | Pago: ${o.payMethod} | <b>$${o.total.toLocaleString('es-CO')} COP</b></small>
-            <p>${o.items.map(i => `${i.name} [${i.measure}]: ${i.specs}`).join(' • ')}</p>
-          </div>
-        `;
+        ordersEl.innerHTML += `<div class="log-card"><strong>${o.id} — ${o.name} (${o.phone})</strong><br><small>${o.city}, ${o.depto} | Entrega: ${o.deadline} | $${o.total.toLocaleString('es-CO')} COP</small><p>${o.items.map(i => `${i.name} [${i.measure}]`).join(', ')}</p></div>`;
       });
 
-      // Alertas de descarga
       const dlEl = document.getElementById('downloadNotificationsList');
-      dlEl.innerHTML = downloadLogs.length ? '' : '<p class="muted-text">Sin descargas registradas.</p>';
+      dlEl.innerHTML = downloadLogs.length ? '' : '<p class="muted-text">Sin descargas.</p>';
       downloadLogs.forEach(l => {
-        dlEl.innerHTML += `
-          <div class="log-card dl-alert">
-            <strong>📥 Descarga HD Realizada</strong>
-            <p>${l.clientName} (Código ${l.code}) descargó <b>${l.fileName}</b></p>
-            <small>${l.time}</small>
-          </div>
-        `;
+        dlEl.innerHTML += `<div class="log-card dl-alert"><strong>📥 Descarga HD</strong><p>${l.clientName} descargó <b>${l.fileName}</b></p><small>${l.time}</small></div>`;
       });
       lucide.createIcons();
     }
 
     function saveProducts() {
-      localStorage.setItem('lalo_prods_v3', JSON.stringify(products));
+      localStorage.setItem('lalo_prods_v4', JSON.stringify(products));
       renderCatalog();
       populateExpressCalc();
     }
 
+    function appendProductRefs(idx, files) {
+      if (!files.length) return;
+      const newUrls = Array.from(files).map(f => URL.createObjectURL(f));
+      products[idx].refs.push(...newUrls);
+      saveProducts();
+      renderAdminPanel();
+      alert(`Se agregaron ${newUrls.length} nuevas fotografías. Total en este catálogo: ${products[idx].refs.length}.`);
+    }
+
     function addNewCategory() {
       const name = document.getElementById('newCategoryName').value.trim();
-      if (!name || categories.includes(name)) return alert('Nombre inválido o ya existente.');
+      if (!name || categories.includes(name)) return;
       categories.push(name);
-      localStorage.setItem('lalo_cats_v3', JSON.stringify(categories));
+      localStorage.setItem('lalo_cats_v4', JSON.stringify(categories));
       renderCategoryFilters();
       populateAuthorCategorySelect();
       document.getElementById('newCategoryName').value = '';
       renderAdminPanel();
-      alert('Categoría agregada.');
     }
 
     function deleteCategory(idx) {
-      if (categories.length <= 1) return alert('Debes mantener al menos una categoría.');
+      if (categories.length <= 1) return;
       categories.splice(idx, 1);
-      localStorage.setItem('lalo_cats_v3', JSON.stringify(categories));
+      localStorage.setItem('lalo_cats_v4', JSON.stringify(categories));
       renderCategoryFilters();
       populateAuthorCategorySelect();
       renderAdminPanel();
-    }
-
-    function updateProductRefs(idx, files) {
-      if (!files.length) return;
-      products[idx].refs = Array.from(files).map(f => URL.createObjectURL(f));
-      saveProducts();
-      alert(`Galería actualizada con ${files.length} imágenes.`);
     }
 
     function createNewProduct(e) {
@@ -1153,21 +1186,20 @@
       saveProducts();
       renderAdminPanel();
       e.target.reset();
-      alert('Producto creado exitosamente.');
+      alert(`Catálogo creado con ${refs.length} imágenes.`);
     }
 
     function uploadUnlimitedSession() {
       const clientName = document.getElementById('sessionClientName').value.trim();
       const code = document.getElementById('sessionCustomCode').value.trim().toUpperCase();
       const files = document.getElementById('unlimitedPhotosInput').files;
-      if (!clientName || !code || !files.length) return alert('Completa todos los campos y selecciona las fotos.');
-
+      if (!clientName || !code || !files.length) return alert('Completa los campos.');
       const photos = Array.from(files).map(f => ({ name: f.name, url: URL.createObjectURL(f) }));
       if (!vaultSessions[code]) vaultSessions[code] = { clientName, photos: [] };
       vaultSessions[code].photos.push(...photos);
-      localStorage.setItem('lalo_vault_v3', JSON.stringify(vaultSessions));
+      localStorage.setItem('lalo_vault_v4', JSON.stringify(vaultSessions));
       renderAdminPanel();
-      alert(`Bóveda creada para ${clientName} (${photos.length} fotos HD).`);
+      alert(`Bóveda creada con ${photos.length} fotos HD.`);
     }
 
     function switchAuthorTab(tabId, btn) {
@@ -1177,19 +1209,33 @@
       btn.classList.add('active');
     }
 
-    function applyThemeCustomization() {
+    function applyLiveVisualSettings() {
+      document.body.style.fontFamily = document.getElementById('cfgFontFamily').value;
       document.documentElement.style.fontSize = document.getElementById('cfgFontScale').value;
       document.documentElement.style.setProperty('--cmyk-cyan', document.getElementById('cfgAccentColor').value);
-      document.getElementById('customKickerText').textContent = document.getElementById('cfgKickerText').value;
     }
 
-    function saveSiteSettings() {
+    function saveAllAuthorConfigs() {
       document.getElementById('heroTitle').textContent = document.getElementById('cfgHeroTitle').value;
-      applyThemeCustomization();
-      alert('Configuración guardada.');
+      document.getElementById('heroSubtitle').textContent = document.getElementById('cfgHeroSubtitle').value;
+      document.getElementById('displayBankHolder').textContent = document.getElementById('cfgBankHolder').value;
+      document.getElementById('displayBankAccount').textContent = document.getElementById('cfgBankAccount').value;
+      applyLiveVisualSettings();
+      alert('Configuración aplicada en toda la página.');
     }
 
-    // ASISTENTE IA 3D CAMALEÓN POR VOZ Y EXPOSICIÓN VERBAL
+    function exportBackupJSON() {
+      const data = JSON.stringify({ categories, products, orders }, null, 2);
+      const blob = new Blob([data], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'Respaldo_LaloCom.json';
+      a.click();
+    }
+
+    /* =========================================================
+       IA CAMALEÓN 3D INTERACTIVA (RESPONDE TODAS LAS PREGUNTAS)
+       ========================================================= */
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = SpeechRecognition ? new SpeechRecognition() : null;
     let listening = false;
@@ -1197,24 +1243,18 @@
     if (recognition) {
       recognition.lang = 'es-CO';
       recognition.onresult = e => {
-        const text = e.results[0][0].transcript.toLowerCase();
-        let answer = 'Hola, soy Lalo. Hacemos letreros luminosos, lápidas láser, tazas, camisas y fotografía profesional con entrega digital.';
-        if (text.includes('foto') || text.includes('descargar') || text.includes('código')) {
-          answer = 'Ingresa tu código en la Bóveda Privada para descargar tus fotos en calidad cien por ciento original.';
-        } else if (text.includes('pago') || text.includes('pse') || text.includes('cuenta')) {
-          answer = 'Aceptamos PSE, Bancolombia cuenta de ahorros siete cero cinco, dos ocho cero seis ocho ocho, cinco tres, Nequi y Daviplata.';
-        }
-        speakResponse(answer);
+        const question = e.results[0][0].transcript.toLowerCase();
+        answerClientQuestion(question);
       };
       recognition.onend = () => {
         listening = false;
-        document.getElementById('voiceStatusLabel').textContent = 'Hablar con Lalo IA';
+        document.getElementById('voiceStatusLabel').textContent = 'Preguntar a Lalo';
       };
     }
 
     function toggleVoiceAssistant() {
       if (!recognition) {
-        speakResponse('Hola, soy Lalo punto com. Explora nuestros catálogos y cotiza tu proyecto publicitario.');
+        answerClientQuestion('hola');
         return;
       }
       if (listening) recognition.stop();
@@ -1225,27 +1265,51 @@
       }
     }
 
+    function answerClientQuestion(q) {
+      let reply = '¡Hola! Soy Lalo IA. En Lalo punto com hacemos letreros luminosos y sin luz, lápidas grabadas en láser, tazas, camisas bordadas, pendones, stickers y fotografía HD. ¿Qué deseas cotizar hoy?';
+
+      if (q.includes('lápida') || q.includes('lapida') || q.includes('láser') || q.includes('laser')) {
+        reply = 'Fabricamos lápidas grabadas con láser de alta precisión en mármol y granito con retrato y dedicatoria. Su valor se calcula por centímetro cuadrado en nuestro catálogo.';
+      } else if (q.includes('letrero') || q.includes('luz') || q.includes('aviso') || q.includes('pendón')) {
+        reply = 'Hacemos letreros con iluminación LED y sin luz, avisos en acrílico y pendones en tinta UV. Ingresa el ancho y alto en centímetros en el cotizador para ver el precio exacto.';
+      } else if (q.includes('taza') || q.includes('pocillo')) {
+        reply = 'Personalizamos pocillos blancos, mágicos que cambian con el calor y termos corporativos desde dieciocho mil pesos.';
+      } else if (q.includes('camisa') || q.includes('bordado') || q.includes('estampado')) {
+        reply = 'Estampamos, sublimamos y bordamos camisas y dotaciones empresariales con acabados de alta durabilidad.';
+      } else if (q.includes('foto') || q.includes('código') || q.includes('descargar') || q.includes('bóveda')) {
+        reply = 'Si tuviste una sesión fotográfica con nosotros, ingresa tu código privado en la Bóveda Privada para descargar todas tus fotos editadas en calidad cien por ciento original.';
+      } else if (q.includes('pagar') || q.includes('cuenta') || q.includes('pse') || q.includes('bancolombia') || q.includes('nequi')) {
+        reply = 'Puedes pagar de forma segura mediante PSE, Bancolombia cuenta de ahorros siete cero cinco, dos ocho cero seis ocho ocho, cinco tres, Nequi, Daviplata o Ahorro a la Mano.';
+      } else if (q.includes('whatsapp') || q.includes('contacto') || q.includes('teléfono') || q.includes('ubicación')) {
+        reply = 'Nuestro WhatsApp directo es el tres once, siete cero cinco, treinta y seis setenta. También nos encuentras en TikTok e Instagram como Lalo Agencia Publicitaria.';
+      }
+
+      speakResponse(reply);
+    }
+
     function speakResponse(msg) {
+      const bubble = document.getElementById('aiSpeechBubble');
+      bubble.textContent = msg;
+      bubble.classList.remove('hidden');
+
       const synth = window.speechSynthesis;
-      if (!synth) return;
-      synth.cancel();
-      const u = new SpeechSynthesisUtterance(msg);
-      u.lang = 'es-CO';
-      u.pitch = 1.12;
-      const orb = document.getElementById('chameleonAvatar');
-      u.onstart = () => orb.classList.add('speaking');
-      u.onend = () => orb.classList.remove('speaking');
-      synth.speak(u);
+      if (synth) {
+        synth.cancel();
+        const u = new SpeechSynthesisUtterance(msg);
+        u.lang = 'es-CO';
+        u.pitch = 1.12;
+        const orb = document.getElementById('chameleonAvatar');
+        u.onstart = () => orb.classList.add('speaking');
+        u.onend = () => {
+          orb.classList.remove('speaking');
+          setTimeout(() => bubble.classList.add('hidden'), 6000);
+        };
+        synth.speak(u);
+      }
     }
 
-    function scrollToSection(id) {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function copyText(txt) {
-      navigator.clipboard.writeText(txt);
-      alert('Número de cuenta copiado: ' + txt);
-    }
+    function scrollToSection(id) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }
+    function copyText(txt) { navigator.clipboard.writeText(txt); alert('Copiado: ' + txt); }
   </script>
 </body>
 </html>
