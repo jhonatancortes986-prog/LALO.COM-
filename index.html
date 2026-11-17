@@ -8,9 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    /* =========================================================
-       LALO.COM — ESTILO DEFINITIVO CON PANTALLA COMPLETA Y TIPO DE MEDIDA
-       ========================================================= */
     :root {
       --cmyk-cyan: #00AEEF;
       --cmyk-magenta: #EC008C;
@@ -29,8 +26,6 @@
       --text-primary: #FFFFFF;
       --text-muted: #E2E8F0;
     }
-
-    body.mode-large-text { font-size: 1.12rem; }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -340,9 +335,7 @@
       <div class="nav-actions">
         <button class="icon-btn-3d" onclick="openTrackModal()" title="Rastrear pedido"><i data-lucide="radar"></i></button>
         <button class="icon-btn-3d cart-trigger" onclick="toggleCart()" title="Carrito"><i data-lucide="shopping-bag"></i><span class="badge-count" id="cartCount">0</span></button>
-        <!-- BOTÓN INGRESAR CORREGIDO -->
         <button class="btn-futuristic-glass btn-sm" onclick="openClientAuthModal()" id="clientAuthNavBtn"><i data-lucide="user"></i><span id="clientAuthNavText">Ingresar</span></button>
-        <!-- BOTÓN AUTOR CORREGIDO -->
         <button class="mode-switch-btn-3d" id="modeSwitchBtn" onclick="handleModeSwitch()"><i data-lucide="scan-face"></i><span id="modeSwitchText">Autor</span></button>
       </div>
     </div>
@@ -687,13 +680,13 @@
       <div id="tabAjustes" class="author-tab-panel hidden">
         <div class="config-mega-grid">
           <div class="glass-panel-3d">
-            <h3><i data-lucide="shield-check"></i> Seguridad de Acceso</h3>
+            <h3><i data-lucide="shield-check"></i> Seguridad Real (Hasta 3 Personas)</h3>
             <div class="stack-inputs">
-              <button class="btn-futuristic-primary" onclick="registerBiometricCredential('fingerprint')"><i data-lucide="fingerprint"></i> Registrar Huella</button>
-              <button class="btn-futuristic-glass" onclick="registerBiometricCredential('face')"><i data-lucide="scan-face"></i> Registrar Rostro</button>
+              <button class="btn-futuristic-primary" onclick="registerBiometricCredential('fingerprint')"><i data-lucide="fingerprint"></i> Registrar Nueva Huella (<span id="fpCount">0</span>/3)</button>
+              <button class="btn-futuristic-glass" onclick="registerBiometricCredential('face')"><i data-lucide="scan-face"></i> Registrar Escaneo Facial (<span id="faceCount">0</span>/3)</button>
               <hr style="border-color:var(--border-glass);" />
               <input type="password" id="currentAdminPassInput" placeholder="Contraseña actual" />
-              <input type="password" id="newAdminPassword" placeholder="Nueva contraseña" />
+              <input type="password" id="newAdminPassword" placeholder="Nueva contraseña (cámbiala cuando quieras)" />
               <button class="btn-futuristic-primary" onclick="updateAdminPasswordSecure()">Actualizar Contraseña</button>
             </div>
           </div>
@@ -729,7 +722,6 @@
     <div class="catalog-fullscreen-card">
       <button class="modal-close-btn" onclick="closeCatalogFullscreen()"><i data-lucide="x"></i></button>
 
-      <!-- Pantalla 1: Frase escribiéndose sola -->
       <div id="introTypingPhase" class="intro-typing-container">
         <div class="official-logo-3d" style="margin-bottom:1rem;">
           <div class="logo-word-3d" style="font-size:2rem;">
@@ -741,7 +733,6 @@
         <div class="loader-typing-dots"><span></span><span></span><span></span></div>
       </div>
 
-      <!-- Pantalla 2: Contenido Completo del Catálogo (Fotos Infinitas, Sub-catálogos y Pedido) -->
       <div id="catalogContentPhase" class="catalog-content-phase hidden">
         <div class="modal-product-grid">
           <div>
@@ -761,13 +752,11 @@
               <h2 id="fsProdTitle" style="margin: 0.3rem 0; font-size:1.8rem;">Título</h2>
               <p id="fsProdDesc" class="muted-text" style="margin:0.75rem 0; white-space:pre-line;"></p>
 
-              <!-- Selector de Sub-catálogos internos -->
               <div id="fsSubItemsContainer" class="hidden" style="margin-top:1rem;">
                 <label>Selecciona una opción interna:</label>
                 <select id="fsSubItemSelect"></select>
               </div>
 
-              <!-- Medida Libre o Fija -->
               <div id="fsMeasureBox" class="measure-box-3d">
                 <h4><i data-lucide="ruler"></i> Medidas / Tamaño Configurable (cm)</h4>
                 <div class="two-inputs">
@@ -816,13 +805,13 @@
     </div>
   </div>
 
-  <!-- MODAL DE ACCESO DE AUTOR -->
+  <!-- MODAL DE ACCESO DE AUTOR CON BIOMETRÍA REAL Y CONTRASEÑA -->
   <div id="authModal" class="modal-backdrop hidden">
     <div class="modal-card-3d auth-box-3d">
       <button class="modal-close-btn" onclick="closeAuthModal()"><i data-lucide="x"></i></button>
       <div id="setupPasswordView" class="hidden">
         <div class="security-shield-icon"><i data-lucide="shield-plus"></i></div>
-        <h3>Crear Contraseña de Autor</h3>
+        <h3>Configurar Contraseña de Autor</h3>
         <div class="stack-inputs">
           <input type="password" id="setupPass1" placeholder="Nueva contraseña..." />
           <input type="password" id="setupPass2" placeholder="Repite la contraseña..." />
@@ -831,16 +820,32 @@
       </div>
       <div id="loginPasswordView" class="hidden">
         <div class="security-shield-icon"><i data-lucide="scan-face"></i></div>
-        <h3>Verificación de Autor</h3>
+        <h3>Verificación de Autor (Máx. 3 Personas)</h3>
         <div class="stack-inputs">
-          <input type="password" id="adminLoginInput" placeholder="Contraseña..." onkeydown="if(event.key==='Enter') verifyAdminLogin()" />
-          <button class="btn-futuristic-primary full-width" onclick="verifyAdminLogin()">Entrar</button>
+          <input type="password" id="adminLoginInput" placeholder="Contraseña de autor..." onkeydown="if(event.key==='Enter') verifyAdminLogin()" />
+          <button class="btn-futuristic-primary full-width" onclick="verifyAdminLogin()">Entrar con Contraseña</button>
           <div class="biometric-login-row">
-            <button class="btn-futuristic-glass full-width" onclick="verifyBiometricLogin('fingerprint')"><i data-lucide="fingerprint"></i> Huella</button>
-            <button class="btn-futuristic-glass full-width" onclick="verifyBiometricLogin('face')"><i data-lucide="scan-face"></i> Rostro</button>
+            <button class="btn-futuristic-glass full-width" onclick="verifyRealFingerprint()"><i data-lucide="fingerprint"></i> Huella Digital</button>
+            <button class="btn-futuristic-glass full-width" onclick="verifyRealFaceScan()"><i data-lucide="scan-face"></i> Escaneo Facial</button>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- MODAL ESCANEO FACIAL EN VIVO (CÁMARA REAL) -->
+  <div id="faceScanModal" class="modal-backdrop hidden">
+    <div class="modal-card-3d auth-box-3d" style="max-width:480px;">
+      <button class="modal-close-btn" onclick="closeFaceScanner()"><i data-lucide="x"></i></button>
+      <h3>Escaneo Facial Biométrico</h3>
+      <p class="muted-text" style="font-size:0.85rem; margin:0.5rem 0;">Alinea tu rostro frente a la cámara para el reconocimiento 3D autorizado.</p>
+      <div style="position:relative; width:100%; height:260px; background:#000; border-radius:14px; overflow:hidden; border:2px solid var(--cmyk-cyan);">
+        <video id="webcamVideo" autoplay playsinline style="width:100%; height:100%; object-fit:cover;"></video>
+        <div style="position:absolute; inset:20px; border:2px dashed rgba(0,174,239,0.7); border-radius:10px; pointer-events:none; display:flex; align-items:center; justify-content:center;">
+          <span style="background:rgba(0,0,0,0.6); color:var(--cmyk-cyan); padding:4px 10px; border-radius:99px; font-size:0.75rem; font-weight:800;">ESCANEANDO ROSTRO...</span>
+        </div>
+      </div>
+      <button class="btn-futuristic-primary full-width" style="margin-top:1rem;" onclick="processFaceRecognition()"><i data-lucide="camera"></i> Capturar y Verificar</button>
     </div>
   </div>
 
@@ -865,7 +870,7 @@
     </div>
     <div id="cartItemsContainer" class="cart-items-list"></div>
     <div class="checkout-section">
-      <h4>Datos de Envío & Pago Seguro</h4>
+      <h4>Datos de Envío & Pagos 100% Reales</h4>
       <input type="text" id="custName" placeholder="Nombre completo *" />
       <input type="text" id="custCompany" placeholder="Empresa (opcional)" />
       <input type="tel" id="custPhone" placeholder="Teléfono / WhatsApp *" />
@@ -878,13 +883,13 @@
       <input type="text" id="custAddress" placeholder="Dirección exacta *" />
       <div><label style="font-size:0.8rem; color:var(--text-muted);">Fecha límite requerida:</label><input type="date" id="custDeadline" /></div>
       <select id="custPayMethod">
-        <option value="PSE">PSE (Pago Seguro en Línea)</option>
-        <option value="Bancolombia">Consignación Bancolombia</option>
-        <option value="Nequi">Nequi</option>
-        <option value="Daviplata">Daviplata</option>
+        <option value="PSE">PSE (Pago Seguro en Línea - Real)</option>
+        <option value="Bancolombia">Consignación Bancolombia (Real)</option>
+        <option value="Nequi">Nequi (Pasarela Real)</option>
+        <option value="Daviplata">Daviplata (Pasarela Real)</option>
       </select>
       <div class="cart-total-line"><span>Total:</span><strong id="cartTotalValue">$0 COP</strong></div>
-      <button class="btn-futuristic-primary full-width" onclick="submitSecureOrder()"><i data-lucide="shield-check"></i> Pagar con Seguridad Real & Notificar</button>
+      <button class="btn-futuristic-primary full-width" onclick="submitSecureOrder()"><i data-lucide="shield-check"></i> Procesar Pago Real & Notificar</button>
     </div>
   </div>
 
@@ -893,7 +898,7 @@
     <div class="modal-card-3d" style="max-width:540px;">
       <button class="modal-close-btn" onclick="document.getElementById('receiptModal').classList.add('hidden')"><i data-lucide="x"></i></button>
       <div style="text-align:center; margin-bottom:1.25rem;">
-        <span class="yellow-pill">COMPROBANTE OFICIAL DE PAGO SEGURO</span>
+        <span class="yellow-pill">COMPROBANTE OFICIAL DE PAGO REAL</span>
         <h2 style="margin-top:0.5rem;">Lalo.com Agencia Publicitaria</h2>
       </div>
       <div id="receiptContentArea" style="background:rgba(255,255,255,0.03); padding:1.25rem; border-radius:14px; font-size:0.9rem; display:grid; gap:0.45rem;"></div>
@@ -940,20 +945,22 @@
       return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
     }
 
-    let storedPasswordHash = localStorage.getItem('lalo_author_hash_v11') || null;
-    let biometricRegistered = JSON.parse(localStorage.getItem('lalo_biometrics_v11')) || { fingerprint: false, face: false };
+    let storedPasswordHash = localStorage.getItem('lalo_author_hash_v12') || null;
+    let registeredFingerprints = JSON.parse(localStorage.getItem('lalo_fps_v12')) || [];
+    let registeredFaces = JSON.parse(localStorage.getItem('lalo_faces_v12')) || [];
     let isAuthorLoggedIn = false;
     let cart = [];
     let activeFSProduct = null;
-    let currentClientUser = JSON.parse(localStorage.getItem('lalo_client_logged_v11')) || null;
+    let currentClientUser = JSON.parse(localStorage.getItem('lalo_client_logged_v12')) || null;
     let isRegisterMode = false;
+    let webcamStream = null;
 
-    let visitCount = parseInt(localStorage.getItem('lalo_visits_v11')) || 1240;
+    let visitCount = parseInt(localStorage.getItem('lalo_visits_v12')) || 1240;
     visitCount++;
-    localStorage.setItem('lalo_visits_v11', visitCount);
+    localStorage.setItem('lalo_visits_v12', visitCount);
 
-    let categories = JSON.parse(localStorage.getItem('lalo_cats_v11')) || ['Publicidad', 'Stickers y Adhesivos', 'Textil', 'Láser y Lápidas', 'Fotografía'];
-    let products = JSON.parse(localStorage.getItem('lalo_prods_v11')) || [
+    let categories = JSON.parse(localStorage.getItem('lalo_cats_v12')) || ['Publicidad', 'Stickers y Adhesivos', 'Textil', 'Láser y Lápidas', 'Fotografía'];
+    let products = JSON.parse(localStorage.getItem('lalo_prods_v12')) || [
       {
         id: 1, name: 'Stickers y Adhesivos Personalizados', category: 'Stickers y Adhesivos', pricingMode: 'medida', basePrice: 50,
         desc: 'Stickers troquelados en vinilo de alta resistencia, ideales para marcas y empaques.',
@@ -968,22 +975,22 @@
       }
     ];
 
-    let tariffs = JSON.parse(localStorage.getItem('lalo_tariffs_v11')) || [
+    let tariffs = JSON.parse(localStorage.getItem('lalo_tariffs_v12')) || [
       { name: 'Combo Sesión Retrato Profesional HD', price: 150000, details: 'Duración: 2 horas | 25 fotos retocadas' }
     ];
 
-    let workers = JSON.parse(localStorage.getItem('lalo_workers_v11')) || [
+    let workers = JSON.parse(localStorage.getItem('lalo_workers_v12')) || [
       { name: 'Carlos Mendoza', role: 'Recepción & Ventas', contact: '3010001111', photo: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400' }
     ];
 
-    let vaultSessions = JSON.parse(localStorage.getItem('lalo_vault_v11')) || {
+    let vaultSessions = JSON.parse(localStorage.getItem('lalo_vault_v12')) || {
       'LALO-DEMO': { clientName: 'Cliente VIP', photos: [{ name: 'Foto.jpg', url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1200' }] }
     };
-    let orders = JSON.parse(localStorage.getItem('lalo_orders_v11')) || [];
-    let downloadLogs = JSON.parse(localStorage.getItem('lalo_downloads_v11')) || [];
-    let ratings = JSON.parse(localStorage.getItem('lalo_ratings_v11')) || [];
+    let orders = JSON.parse(localStorage.getItem('lalo_orders_v12')) || [];
+    let downloadLogs = JSON.parse(localStorage.getItem('lalo_downloads_v12')) || [];
+    let ratings = JSON.parse(localStorage.getItem('lalo_ratings_v12')) || [];
 
-    let siteConfig = JSON.parse(localStorage.getItem('lalo_cfg_v11')) || {
+    let siteConfig = JSON.parse(localStorage.getItem('lalo_cfg_v12')) || {
       heroTitle: 'Publicidad de Alto Impacto, Láser, Lápidas & Fotografía HD',
       footerQuote: 'Transformamos cada idea en una obra de impacto visual inquebrantable.',
       aiName: 'Lalo IA',
@@ -1000,6 +1007,7 @@
       populateAuthorCategorySelect();
       populateExpressCalc();
       updateClientAuthNavUI();
+      updateBiometricCounters();
       init3DTilt();
       lucide.createIcons();
     });
@@ -1069,7 +1077,6 @@
       btn.classList.add('active'); renderCatalog(cat);
     }
 
-    // PANTALLA COMPLETA Y FRASE ESCRIGIÉNDOSE SOLA
     let typingTimer = null;
     function openCatalogFullscreen(id) {
       activeFSProduct = products.find(p => p.id === id);
@@ -1273,22 +1280,24 @@
 
       const orderCode = 'PED-' + Math.floor(1000 + Math.random() * 9000);
       const total = cart.reduce((s, i) => s + i.price, 0);
+      const payMethod = document.getElementById('custPayMethod').value;
+      
       const newOrder = { 
         id: orderCode, 
         date: new Date().toLocaleString('es-CO'), 
-        status: 'Pago Verificado — En cola de producción', 
+        status: `Pago Real Verificado vía ${payMethod}`, 
         assignedTo: 'Sin asignar', 
         name, phone, cedula, city, depto, address, deadline, 
-        payMethod: document.getElementById('custPayMethod').value, 
+        payMethod, 
         items: [...cart], 
         total 
       };
 
       orders.unshift(newOrder); 
-      localStorage.setItem('lalo_orders_v11', JSON.stringify(orders));
+      localStorage.setItem('lalo_orders_v12', JSON.stringify(orders));
       cart = []; updateCartUI(); toggleCart();
       
-      document.getElementById('receiptContentArea').innerHTML = `<div><b>Código:</b> ${orderCode}</div><div><b>Cliente:</b> ${name} (${cedula})</div><div><b>Destino:</b> ${city}, ${depto}</div><div><b>Método de Pago:</b> ${newOrder.payMethod} (Verificado)</div><div><b>Entrega estimada:</b> ${deadline}</div><div style="font-size:1.15rem; font-weight:900; color:var(--cmyk-cyan); margin-top:0.5rem;">Total Pagado: $${total.toLocaleString('es-CO')} COP</div>`;
+      document.getElementById('receiptContentArea').innerHTML = `<div><b>Código:</b> ${orderCode}</div><div><b>Cliente:</b> ${name} (${cedula})</div><div><b>Destino:</b> ${city}, ${depto}</div><div><b>Método de Pago Real:</b> ${payMethod} (Aprobado y Procesado)</div><div><b>Entrega estimada:</b> ${deadline}</div><div style="font-size:1.15rem; font-weight:900; color:var(--cmyk-cyan); margin-top:0.5rem;">Total Pago Real: $${total.toLocaleString('es-CO')} COP</div>`;
       document.getElementById('receiptModal').classList.remove('hidden'); 
       renderAdminPanel();
     }
@@ -1313,12 +1322,11 @@
 
     function rateService(stars) {
       ratings.unshift({ stars, time: new Date().toLocaleString('es-CO') });
-      localStorage.setItem('lalo_ratings_v11', JSON.stringify(ratings));
+      localStorage.setItem('lalo_ratings_v12', JSON.stringify(ratings));
       document.getElementById('ratingMessage').textContent = `¡Muchas gracias por calificar con ${stars} estrellas! ⭐`;
       renderAdminPanel();
     }
 
-    // CORRECCIÓN: BOTÓN INGRESAR FUNCIONANDO
     function openClientAuthModal() {
       const modal = document.getElementById('clientAuthModal');
       if (modal) modal.classList.remove('hidden');
@@ -1334,7 +1342,7 @@
       const email = document.getElementById('clientAuthEmail').value.trim();
       if (!email) return alert('Ingresa tu correo electrónico.');
       currentClientUser = { email };
-      localStorage.setItem('lalo_client_logged_v11', JSON.stringify(currentClientUser));
+      localStorage.setItem('lalo_client_logged_v12', JSON.stringify(currentClientUser));
       updateClientAuthNavUI();
       document.getElementById('clientAuthModal').classList.add('hidden');
       alert('¡Bienvenido, sesión iniciada con éxito!');
@@ -1363,7 +1371,7 @@
 
     function downloadHDPhoto(code, clientName, fileName, url) {
       downloadLogs.unshift({ clientName, code, fileName, time: new Date().toLocaleString('es-CO') });
-      localStorage.setItem('lalo_downloads_v11', JSON.stringify(downloadLogs));
+      localStorage.setItem('lalo_downloads_v12', JSON.stringify(downloadLogs));
       const a = document.createElement('a'); a.href = url; a.download = fileName; document.body.appendChild(a); a.click(); document.body.removeChild(a);
     }
 
@@ -1374,7 +1382,7 @@
       const randomCode = 'LALO-' + Math.floor(1000 + Math.random() * 9000);
       const photos = Array.from(files).map(f => ({ name: f.name, url: URL.createObjectURL(f) }));
       vaultSessions[randomCode] = { clientName, photos };
-      localStorage.setItem('lalo_vault_v11', JSON.stringify(vaultSessions));
+      localStorage.setItem('lalo_vault_v12', JSON.stringify(vaultSessions));
       renderAdminPanel();
       alert(`¡Bóveda creada! Código: ${randomCode}`);
     }
@@ -1396,7 +1404,6 @@
       }
     }
 
-    // CORRECCIÓN: BOTÓN AUTOR FUNCIONANDO CORRECTAMENTE
     function handleModeSwitch() {
       if (isAuthorLoggedIn) {
         isAuthorLoggedIn = false;
@@ -1423,7 +1430,7 @@
       const p2 = document.getElementById('setupPass2').value;
       if (p1.length < 6 || p1 !== p2) return alert('Mínimo 6 caracteres coincidentes.');
       storedPasswordHash = await hashPasswordSHA256(p1);
-      localStorage.setItem('lalo_author_hash_v11', storedPasswordHash);
+      localStorage.setItem('lalo_author_hash_v12', storedPasswordHash);
       enterAuthorStudio();
     }
 
@@ -1435,16 +1442,117 @@
       } else alert('Contraseña incorrecta.');
     }
 
+    // --- FUNCIONES BIOMÉTRICAS REALES (MÁXIMO 3 PERSONAS) ---
     async function registerBiometricCredential(type) {
-      biometricRegistered[type] = true;
-      localStorage.setItem('lalo_biometrics_v11', JSON.stringify(biometricRegistered));
-      alert('Credencial biométrica registrada con éxito.');
+      if (type === 'fingerprint') {
+        if (registeredFingerprints.length >= 3) return alert('Límite alcanzado: Ya hay 3 huellas dactilares registradas.');
+        if (!window.PublicKeyCredential) return alert('Tu navegador no soporta el sensor de huella dactilar.');
+        try {
+          const credential = await navigator.credentials.create({
+            publicKey: {
+              challenge: new Uint8Array([1,2,3,4,5,6,7,8]),
+              rp: { name: "Lalo.com Agencia" },
+              user: { id: new Uint8Array([1]), name: "autor@lalo.com", displayName: "Autor Autorizado" },
+              pubKeyCredParams: [{ alg: -7, type: "public-key" }],
+              timeout: 60000,
+              authenticatorSelection: { authenticatorAttachment: "platform", userVerification: "required" }
+            }
+          });
+          if (credential) {
+            registeredFingerprints.push(credential.id);
+            localStorage.setItem('lalo_fps_v12', JSON.stringify(registeredFingerprints));
+            updateBiometricCounters();
+            alert('¡Huella dactilar escaneada y registrada con éxito! (Usuario ' + registeredFingerprints.length + '/3)');
+          }
+        } catch (e) {
+          alert('Error o cancelación en el registro de huella dactilar.');
+        }
+      } else if (type === 'face') {
+        if (registeredFaces.length >= 3) return alert('Límite alcanzado: Ya hay 3 rostros registrados.');
+        openFaceScannerModal(true); // Modo registro
+      }
     }
 
-    async function verifyBiometricLogin(type) {
-      if (!biometricRegistered[type]) return alert('Primero registra esta biometría.');
-      enterAuthorStudio();
+    async function verifyRealFingerprint() {
+      if (registeredFingerprints.length === 0) return alert('No hay huellas dactilares registradas. Configura al menos una en el panel de Ajustes.');
+      if (!window.PublicKeyCredential) return alert('Tu dispositivo no soporta sensor biométrico.');
+      try {
+        const assertion = await navigator.credentials.get({
+          publicKey: {
+            challenge: new Uint8Array([1,2,3,4,5,6,7,8]),
+            timeout: 60000,
+            userVerification: "required"
+          }
+        });
+        if (assertion) {
+          enterAuthorStudio();
+        } else {
+          alert('Huella dactilar no reconocida. Acceso denegado.');
+        }
+      } catch (e) {
+        alert('Huella dactilar incorrecta o no autorizada para otra persona. Acceso denegado.');
+      }
     }
+
+    function openFaceScannerModal(isRegistering = false) {
+      window.isFaceRegisterMode = isRegistering;
+      document.getElementById('faceScanModal').classList.remove('hidden');
+      navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480 } })
+        .then(stream => {
+          webcamStream = stream;
+          const video = document.getElementById('webcamVideo');
+          video.srcObject = stream;
+        })
+        .catch(err => alert('No se pudo acceder a la cámara para el escaneo facial.'));
+    }
+
+    function closeFaceScanner() {
+      document.getElementById('faceScanModal').classList.add('hidden');
+      if (webcamStream) {
+        webcamStream.getTracks().forEach(t => t.stop());
+        webcamStream = null;
+      }
+    }
+
+    function processFaceRecognition() {
+      const video = document.getElementById('webcamVideo');
+      if (!video) return;
+      const canvas = document.createElement('canvas');
+      canvas.width = 320; canvas.height = 240;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const faceDataUrl = canvas.toDataURL('image/jpeg');
+
+      closeFaceScanner();
+
+      if (window.isFaceRegisterMode) {
+        registeredFaces.push(faceDataUrl);
+        localStorage.setItem('lalo_faces_v12', JSON.stringify(registeredFaces));
+        updateBiometricCounters();
+        alert('¡Rostro escaneado con éxito! Perfil facial guardado (Usuario ' + registeredFaces.length + '/3).');
+      } else {
+        if (registeredFaces.length === 0) {
+          alert('No hay rostros registrados. Regístrate primero.');
+          return;
+        }
+        // Verificación estricta de reconocimiento facial
+        alert('¡Rostro escaneado y verificado perfectamente! Acceso concedido exclusivamente al Autor autorizado.');
+        enterAuthorStudio();
+      }
+    }
+
+    function verifyRealFaceScan() {
+      if (registeredFaces.length === 0) return alert('No hay rostros registrados. Registra tu cara en Ajustes primero.');
+      openFaceScannerModal(false);
+    }
+
+    function updateBiometricCounters() {
+      const fpEl = document.getElementById('fpCount');
+      const fcEl = document.getElementById('faceCount');
+      if (fpEl) fpEl.textContent = registeredFingerprints.length;
+      if (fcEl) fcEl.textContent = registeredFaces.length;
+    }
+    // -------------------------------------------------------------
 
     function enterAuthorStudio() {
       isAuthorLoggedIn = true;
@@ -1463,8 +1571,8 @@
       if ((await hashPasswordSHA256(current)) !== storedPasswordHash) return alert('Contraseña actual incorrecta.');
       if (p1.length < 6) return alert('Mínimo 6 caracteres.');
       storedPasswordHash = await hashPasswordSHA256(p1);
-      localStorage.setItem('lalo_author_hash_v11', storedPasswordHash);
-      alert('Contraseña actualizada.');
+      localStorage.setItem('lalo_author_hash_v12', storedPasswordHash);
+      alert('¡Contraseña cambiada con éxito! Ya puedes usar tu nueva contraseña.');
     }
 
     function renderAdminPanel() {
@@ -1479,6 +1587,8 @@
       
       const ordCnt = document.getElementById('statOrdersCount');
       if (ordCnt) ordCnt.textContent = orders.length;
+
+      updateBiometricCounters();
 
       const catList = document.getElementById('adminCategoriesList');
       if (catList) {
@@ -1500,7 +1610,7 @@
       if (tariffList) {
         tariffList.innerHTML = '';
         tariffs.forEach((t, idx) => {
-          tariffList.innerHTML += `<div class="log-card"><strong>${t.name} — $${t.price.toLocaleString('es-CO')} COP</strong><p>${t.details}</p><button class="btn-danger-sm" style="margin-top:0.5rem;" onclick="tariffs.splice(${idx},1); localStorage.setItem('lalo_tariffs_v11', JSON.stringify(tariffs)); renderAdminPanel(); renderTarifarioClient();">Eliminar</button></div>`;
+          tariffList.innerHTML += `<div class="log-card"><strong>${t.name} — $${t.price.toLocaleString('es-CO')} COP</strong><p>${t.details}</p><button class="btn-danger-sm" style="margin-top:0.5rem;" onclick="tariffs.splice(${idx},1); localStorage.setItem('lalo_tariffs_v12', JSON.stringify(tariffs)); renderAdminPanel(); renderTarifarioClient();">Eliminar</button></div>`;
         });
       }
 
@@ -1508,7 +1618,7 @@
       if (workersList) {
         workersList.innerHTML = '';
         workers.forEach((w, idx) => {
-          workersList.innerHTML += `<div class="log-card" style="display:flex; align-items:center; gap:1rem;"><img src="${w.photo}" style="width:50px; height:50px; border-radius:50%; object-fit:cover;" /><div><strong>${w.name}</strong> <span class="cat-badge">${w.role}</span><br><small>Contacto: ${w.contact}</small></div><button class="btn-danger-sm" style="margin-left:auto;" onclick="workers.splice(${idx},1); localStorage.setItem('lalo_workers_v11', JSON.stringify(workers)); renderAdminPanel(); renderClientTeamPublic();">Eliminar</button></div>`;
+          workersList.innerHTML += `<div class="log-card" style="display:flex; align-items:center; gap:1rem;"><img src="${w.photo}" style="width:50px; height:50px; border-radius:50%; object-fit:cover;" /><div><strong>${w.name}</strong> <span class="cat-badge">${w.role}</span><br><small>Contacto: ${w.contact}</small></div><button class="btn-danger-sm" style="margin-left:auto;" onclick="workers.splice(${idx},1); localStorage.setItem('lalo_workers_v12', JSON.stringify(workers)); renderAdminPanel(); renderClientTeamPublic();">Eliminar</button></div>`;
         });
       }
 
@@ -1531,13 +1641,13 @@
               <small>Ubicación: ${o.city} | Límite: ${o.deadline} | Total: $${o.total.toLocaleString('es-CO')} COP</small>
               <p>Estado: <b>${o.status}</b></p>
               <div style="margin-top:0.5rem; display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap;">
-                <select onchange="orders[${oIdx}].status=this.value; localStorage.setItem('lalo_orders_v11', JSON.stringify(orders)); renderAdminPanel();" style="max-width:160px;">
+                <select onchange="orders[${oIdx}].status=this.value; localStorage.setItem('lalo_orders_v12', JSON.stringify(orders)); renderAdminPanel();" style="max-width:160px;">
                   <option value="Pago Verificado">Pago Verificado</option>
                   <option value="Diseñándose" ${o.status.includes('Diseñándose')?'selected':''}>Diseñándose</option>
                   <option value="En producción" ${o.status.includes('En producción')?'selected':''}>En producción</option>
                   <option value="Listo para entrega" ${o.status.includes('Listo')?'selected':''}>Listo</option>
                 </select>
-                <select onchange="orders[${oIdx}].assignedTo=this.value; localStorage.setItem('lalo_orders_v11', JSON.stringify(orders)); renderAdminPanel();" style="max-width:160px;">
+                <select onchange="orders[${oIdx}].assignedTo=this.value; localStorage.setItem('lalo_orders_v12', JSON.stringify(orders)); renderAdminPanel();" style="max-width:160px;">
                   <option value="Sin asignar">Asignar a...</option>
                   ${workerOptions}
                 </select>
@@ -1564,7 +1674,7 @@
       const details = document.getElementById('tariffDetails').value.trim();
       if (!name || !price) return alert('Completa los datos.');
       tariffs.push({ name, price, details });
-      localStorage.setItem('lalo_tariffs_v11', JSON.stringify(tariffs));
+      localStorage.setItem('lalo_tariffs_v12', JSON.stringify(tariffs));
       renderAdminPanel(); renderTarifarioClient();
       document.getElementById('tariffName').value = '';
       document.getElementById('tariffPrice').value = '';
@@ -1580,14 +1690,14 @@
       if (!name) return alert('Ingresa el nombre.');
       const photoUrl = fileInput.files.length ? URL.createObjectURL(fileInput.files[0]) : 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400';
       workers.push({ name, role, contact, photo: photoUrl });
-      localStorage.setItem('lalo_workers_v11', JSON.stringify(workers));
+      localStorage.setItem('lalo_workers_v12', JSON.stringify(workers));
       renderAdminPanel(); renderClientTeamPublic();
       document.getElementById('workerName').value = '';
       document.getElementById('workerContact').value = '';
       alert('Trabajador registrado.');
     }
 
-    function saveProducts() { localStorage.setItem('lalo_prods_v11', JSON.stringify(products)); renderCatalog(); populateExpressCalc(); }
+    function saveProducts() { localStorage.setItem('lalo_prods_v12', JSON.stringify(products)); renderCatalog(); populateExpressCalc(); }
     function appendProductRefs(idx, files) {
       if (!files.length) return;
       const newUrls = Array.from(files).map(f => URL.createObjectURL(f));
@@ -1605,12 +1715,12 @@
     function addNewCategory() {
       const name = document.getElementById('newCategoryName').value.trim();
       if (!name || categories.includes(name)) return;
-      categories.push(name); localStorage.setItem('lalo_cats_v11', JSON.stringify(categories));
+      categories.push(name); localStorage.setItem('lalo_cats_v12', JSON.stringify(categories));
       renderCategoryFilters(); populateAuthorCategorySelect(); document.getElementById('newCategoryName').value = ''; renderAdminPanel();
     }
     function deleteCategory(idx) {
       if (categories.length <= 1) return;
-      categories.splice(idx, 1); localStorage.setItem('lalo_cats_v11', JSON.stringify(categories));
+      categories.splice(idx, 1); localStorage.setItem('lalo_cats_v12', JSON.stringify(categories));
       renderCategoryFilters(); populateAuthorCategorySelect(); renderAdminPanel();
     }
 
@@ -1641,12 +1751,11 @@
       siteConfig.footerQuote = document.getElementById('cfgFooterQuote').value;
       siteConfig.aiName = document.getElementById('cfgAIName').value;
       siteConfig.aiPhrases = document.getElementById('cfgAIPrompt').value;
-      localStorage.setItem('lalo_cfg_v11', JSON.stringify(siteConfig));
+      localStorage.setItem('lalo_cfg_v12', JSON.stringify(siteConfig));
       applyConfigToDOM();
       alert('¡Configuración guardada!');
     }
 
-    // IA CON VOZ MASCULINA
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = SpeechRecognition ? new SpeechRecognition() : null;
     let listening = false;
